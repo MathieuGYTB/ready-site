@@ -3,7 +3,7 @@
   height: 400px;
 }
 
-main {
+section {
   margin: 50px;
   padding: 50px;
   border: 1px solid black;
@@ -22,5 +22,14 @@ p {
 
 body {
   background-color: #f6f3f2;
+}
+
+aside {
+  margin: 50px;
+}
+
+#pack {
+  width: 75%;
+  height: 500px;
 }
 /*# sourceMappingURL=styles.css.map */
