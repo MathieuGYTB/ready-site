@@ -20,7 +20,7 @@
       <div class="collapse navbar-collapse" id="navbarColor02">
         <ul class="navbar-nav me-auto mb-2 mb-lg-0">
           <li class="nav-item">
-            <a class="nav-link" href="commandez.html">Commandez</a>
+            <a class="nav-link" href="commandez.html">Commandez le pack de démarage</a>
           </li>
           <li class="nav-item">
             <a id="CGV" class="nav-link" href="CGV.html">Conditions générales de vente</a>
@@ -38,5 +38,22 @@
       </div>
     </div>
   </nav>
+  <main>
+    <section>
+      <form method="post" action="mat.68@orange.fr">
+        <label for="name" class="form-label">Nom</label>
+        <input class="form-control" id="name" type="text" name="name" required/>
+        
+        <label for="firstname" class="form-label">Prénom</label>
+        <input class="form-control" id="firstname" type="text" name="firstname" required/>
+     
+        <label for="message" class="form-label">Message</label>
+        <textarea class="form-control" rows="10" id="message" name="message" required></textarea>
+
+        <button class="send-button" id="submit" type="submit">Envoyer</button>
+
+      </form>
+    </section>
+  </main>
 </body>
 </html>
