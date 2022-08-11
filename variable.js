@@ -2,6 +2,7 @@ $(function () {
   //check if jquery is installed
   console.log('jquery est instalé');
 
+  //variables
   const price = $('#price').text('29,99 euros');
   const name = $('.name').text('Guyot Mathieu');
   const companyName = $('#companyName').text('MG Production');
