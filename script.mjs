@@ -1,1 +1,0 @@
-import {jquery} from "./variable.mjs";
