@@ -38,5 +38,33 @@
       </div>
     </div>
   </nav>
+  <main>
+    <section>
+      <h2>Connectez-vous</h2>
+      <form method="POST" action="subscribe.php">
+        <label for="email" class="form-label">E-mail</label>
+        <input class="form-control" id="email" type="email" name="email" placeholder="Entrez votre adresse e-mail" required/>
+        <label for="password" class="form-label">Password</label>
+        <input class="form-control" id="password" type="text" name="password" required/>
+        <br/>
+        <button class="send-button btn-primary" id="submit" type="submit">Envoyer</button>
+      </form>
+    </section>
+    <section>
+      <h1>Ou inscrivez-vous</h1>
+      <form method="POST" action="subscribe.php">
+        <label for="name" class="form-label">Nom</label>
+        <input class="form-control" id="name" type="text" name="name" required/>
+        <label for="firstname" class="form-label">Prénom</label>
+        <input class="form-control" id="firstname" type="text" name="firstname" required/>
+        <label for="email" class="form-label">E-mail</label>
+        <input class="form-control" id="email" type="email" name="email" placeholder="Entrez votre adresse e-mail" required/>
+        <label for="password" class="form-label">Password</label>
+        <input class="form-control" id="password" type="text" name="password" required/>
+        <br/>
+        <button class="send-button btn-primary" id="submit" type="submit">Envoyer</button>
+      </form>
+    </section>
+  </main>
 </body>
 </html>
