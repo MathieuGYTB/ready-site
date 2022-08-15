@@ -8,4 +8,9 @@ class DefaultController
     {
         return new Response('Hello world!');
     }
+
+    public function contact()
+    {
+      return new Response('');
+    }
 }
