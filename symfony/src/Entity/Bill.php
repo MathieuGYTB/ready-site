@@ -14,16 +14,19 @@ class Bill
     #[ORM\Column]
     private ?int $id = null;
 
-    #[ORM\Column(length: 50)]
-    private ?string $name = null;
+    #[ORM\OneToOne(inversedBy: 'bill', cascade: ['persist', 'remove'])]
+    #[ORM\JoinColumn(nullable: false)]
+    private ?users $name = null;
 
-    #[ORM\Column(length: 50)]
-    private ?string $firstname = null;
+    #[ORM\OneToOne(cascade: ['persist', 'remove'])]
+    #[ORM\JoinColumn(nullable: false)]
+    private ?users $firstname = null;
+
+    #[ORM\OneToOne(cascade: ['persist', 'remove'])]
+    #[ORM\JoinColumn(nullable: false)]
+    private ?users $email = null;
 
     #[ORM\Column(length: 255)]
-    private ?string $email = null;
-
-    #[ORM\Column(length: 4)]
     private ?string $description = null;
 
     #[ORM\Column]
@@ -40,36 +43,36 @@ class Bill
         return $this->id;
     }
 
-    public function getName(): ?string
+    public function getName(): ?users
     {
         return $this->name;
     }
 
-    public function setName(string $name): self
+    public function setName(users $name): self
     {
         $this->name = $name;
 
         return $this;
     }
 
-    public function getFirstname(): ?string
+    public function getFirstname(): ?users
     {
         return $this->firstname;
     }
 
-    public function setFirstname(string $firstname): self
+    public function setFirstname(users $firstname): self
     {
         $this->firstname = $firstname;
 
         return $this;
     }
 
-    public function getEmail(): ?string
+    public function getEmail(): ?users
     {
         return $this->email;
     }
 
-    public function setEmail(string $email): self
+    public function setEmail(users $email): self
     {
         $this->email = $email;
 

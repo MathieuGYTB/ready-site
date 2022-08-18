@@ -3,7 +3,6 @@
 namespace App\Entity;
 
 use App\Repository\UsersRepository;
-use Doctrine\DBAL\Types\Types;
 use Doctrine\ORM\Mapping as ORM;
 
 #[ORM\Entity(repositoryClass: UsersRepository::class)]
@@ -32,11 +31,11 @@ class Users
     #[ORM\Column(nullable: true)]
     private ?int $cvc = null;
 
-    #[ORM\Column(type: Types::DATE_MUTABLE, nullable: true)]
-    private ?\DateTimeInterface $cardEndDate = null;
+    #[ORM\Column(length: 5, nullable: true)]
+    private ?string $cardEndDate = null;
 
-    #[ORM\Column(nullable: true)]
-    private ?int $bill = null;
+    #[ORM\OneToOne(cascade: ['persist', 'remove'])]
+    private ?bill $bill = null;
 
     public function getId(): ?int
     {
@@ -115,27 +114,27 @@ class Users
         return $this;
     }
 
-    public function getCardEndDate(): ?\DateTimeInterface
+    public function getCardEndDate(): ?string
     {
         return $this->cardEndDate;
     }
 
-    public function setCardEndDate(?\DateTimeInterface $cardEndDate): self
+    public function setCardEndDate(?string $cardEndDate): self
     {
         $this->cardEndDate = $cardEndDate;
 
         return $this;
     }
 
-    public function getBill(): ?int
+    public function getBill(): ?bill
     {
         return $this->bill;
     }
 
-    public function setBill(?int $bill): self
+    public function setBill(?bill $bill): self
     {
         $this->bill = $bill;
 
         return $this;
-    }
+    }    
 }
