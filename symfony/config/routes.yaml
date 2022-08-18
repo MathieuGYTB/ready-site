@@ -5,3 +5,19 @@ index:
 contact:
     path: /contact
     controller: App\Controller\DefaultController::contact
+
+commandez:
+    path: /commandez
+    controller: App\Controller\DefaultController::commandez
+
+cgv:
+    path: /cgv
+    controller: App\Controller\DefaultController::cgv
+
+rgpd:
+    path: /rgpd
+    controller: App\Controller\DefaultController::rgpd
+
+monEspace:
+    path: /monEspace
+    controller: App\Controller\DefaultController::monEspace

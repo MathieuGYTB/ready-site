@@ -13,7 +13,7 @@ class DefaultController extends AbstractController
    */
     public function index()
     {
-        return new Response('Hello world!');
+        return $this->render('default/index.html.twig');
     }
 
     /**
@@ -24,4 +24,35 @@ class DefaultController extends AbstractController
       return $this->render(view: 'default/contact.html.twig');
     }
 
+    /**
+     * @Route("/commandez")
+     */
+    public function commandez()
+    {
+      return $this->render(view: 'default/commandez.html.twig');
+    }
+
+    /**
+     * @Route("/cgv")
+     */
+    public function cgv()
+    {
+      return $this->render(view: 'default/cgv.html.twig');
+    }
+
+    /**
+     * @Route("/rgpd")
+     */
+    public function rgpd()
+    {
+      return $this->render(view: 'default/rgpd.html.twig');
+    }
+
+    /**
+     * @Route("/monEspace")
+     */
+    public function monEspace()
+    {
+      return $this->render(view: 'default/monEspace.html.twig');
+    }
 }

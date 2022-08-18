@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>RGPD</title>
+
+  <!--bootstrap and css link-->
+  <link href="{{asset('bootstrap.css')}}" rel="stylesheet" type="text/css"/>
+  <link href="{{asset('css/styles.css')}}" rel="stylesheet" type="text/css"/>
+</head>
+
+<body>
+  <!--Navbar-->
+  <nav class="navbar sticky-top navbar-expand-lg navbar-dark bg-secondary">
+    <div class="container-fluid">
+      <a class="navbar-brand" href="/">Accueil</a>
+      <div class="collapse navbar-collapse" id="navbarColor02">
+        <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+          <li class="nav-item">
+            <a class="nav-link" href="commandez">Commandez le pack de démarage</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="cgv">Conditions générales de vente</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link active" aria-current="page" href="rgpd">Réglementation concernant les données personnelles</a>
+          </li>
+          <li class="nav-item">
+            <a id="contact" class="nav-link" aria-current="page" href="contact">Contact</a>
+          </li>
+          <li class="nav-item">
+            <a id="connecter" class="nav-link" aria-current="page" href="monEspace">Mon espace personnel</a>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+  <main>
+    <section>
+      <h1>Réglement général sur la protection des données</h1>
+      <br/>
+      <ol>
+        <li>Voici la liste des données personnelles qui vous sont demandées : Nom, Prénom, adresse e-mail, données de carte bancaire.</li>
+        <li>Les données qui vous sont demandées servent au paiement du pack de démarage, à son envoie par e-mail et à la réalisation de la facture.</li>
+        <li>Les données sont conservées 30 jours maximum et sont ensuite supprimées.</li>
+        <li>Pour toutes questions relatives à vos données personnelles, contactez <span class="name"></span> en allant dans la rubrique contact.</li>
+      </ol>
+    </section>
+  </main>
+  <script src="{{asset('js/jquery.js')}}"></script>
+  <script src="{{asset('js/bootstrap.js')}}"></script>
+  <script src="{{asset('js/script.js')}}" type="module"></script>
+</body>
+</html>
