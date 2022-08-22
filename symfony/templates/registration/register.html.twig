@@ -1,21 +1,67 @@
-{% extends 'base.html.twig' %}
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>MG Production</title>
+  <meta name="description" content="site de vente de site web prêt à l'emploi">
 
-{% block title %}Register{% endblock %}
+  <!--bootstrap and css link-->
+  <link href="{{asset('css/bootstrap.css')}}" rel="stylesheet" type="text/css"/>
+  <link href="{{asset('css/styles.css')}}" rel="stylesheet" type="text/css"/>
 
-{% block body %}
-    {% for flash_error in app.flashes('verify_email_error') %}
+</head>
+<body>
+     {% for flash_error in app.flashes('verify_email_error') %}
         <div class="alert alert-danger" role="alert">{{ flash_error }}</div>
     {% endfor %}
+    <main>
+        <nav class="navbar sticky-top navbar-expand-lg navbar-dark bg-secondary">
+            <div class="container-fluid">
+                <a class="navbar-brand active" href="/">MG Production</a>
+                <div class="collapse navbar-collapse" id="navbarColor02">
+                    <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+                        <li class="nav-item">
+                                <a class="nav-link" href="commandez">Commandez le pack de démarage</a>
+                        </li>
+                        <li class="nav-item">
+                            <a id="CGV" class="nav-link" href="cgv">Conditions générales de vente</a>
+                        </li>
+                        <li class="nav-item">
+                            <a id="RGPD" class="nav-link" aria-current="page" href="rgpd">Réglementation concernant les données personnelles</a>
+                        </li>
+                        <li class="nav-item">
+                            <a id="contact" class="nav-link" aria-current="page" href="contact">Contact</a>
+                        </li>
+                        <li class="nav-item">
+                            <a id="connecter" class="nav-link" aria-current="page" href="register">Mon espace personnel</a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </nav>
+   
+        <section>
+            <h1>S'inscrire</h1>
+            
+                {{ form_start(registrationForm) }}
+                        {{ form_row(registrationForm.name) }}
+                    <br/>
+                        {{ form_row(registrationForm.firstname) }}
+                    <br/>
+                        {{ form_row(registrationForm.email) }}
+                    <br/>
+                        {{ form_row(registrationForm.plainPassword, {
+                            label: 'Password'
+                        }) }}
+                    <br/>
+                        {{ form_row(registrationForm.agreeTerms) }}
+                    <br/>
+                        <button type="submit" class="send-button btn-primary">valider</button>
+                {{ form_end(registrationForm) }}
+            
+        </section>
+    </main>
+</body>
 
-    <h1>Register</h1>
-
-    {{ form_start(registrationForm) }}
-        {{ form_row(registrationForm.email) }}
-        {{ form_row(registrationForm.plainPassword, {
-            label: 'Password'
-        }) }}
-        {{ form_row(registrationForm.agreeTerms) }}
-
-        <button type="submit" class="btn">Register</button>
-    {{ form_end(registrationForm) }}
-{% endblock %}

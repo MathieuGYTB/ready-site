@@ -19,5 +19,6 @@ rgpd:
     controller: App\Controller\DefaultController::rgpd
 
 monEspace:
-    path: /monEspace
-    controller: App\Controller\DefaultController::monEspace
+    path: /register
+    controller: App\Controller\RegistrationController::register
+

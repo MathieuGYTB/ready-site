@@ -53,7 +53,7 @@ class RegistrationController extends AbstractController
             );
             // do anything else you need here, like send an email
 
-            return $this->redirectToRoute('monEspace');
+            return $this->redirectToRoute('registrer');
         }
 
         return $this->render('registration/register.html.twig', [
