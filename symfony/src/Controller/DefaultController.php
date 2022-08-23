@@ -4,6 +4,7 @@ namespace App\Controller;
 
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Response;
+use Symfony\Component\Routing\Annotation\Route;
 
 class DefaultController extends AbstractController
 {
@@ -51,8 +52,15 @@ class DefaultController extends AbstractController
     /**
      * @Route("/monEspace")
      */
-    public function monEspace()
+    public function register()
     {
-      return $this->render(view: 'default/monEspace.html.twig');
+      return $this->render(view: 'registration/register.html.twig');
+    }
+    /**
+     * @Route("/login")
+     */
+    public function login()
+    {
+      return $this->render(view: 'security/login.html.twig');
     }
 }

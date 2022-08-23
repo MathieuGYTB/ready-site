@@ -18,10 +18,14 @@ rgpd:
     path: /rgpd
     controller: App\Controller\DefaultController::rgpd
 
-monEspace:
+register:
     path: /register
     controller: App\Controller\RegistrationController::register
 
 app_verify_email:
     path: /verify/email
     controller: App\Controller\RegistrationController::verifyUserEmail
+
+app_login:
+    path: /login
+    controller: App\Controller\SecurityController::login
