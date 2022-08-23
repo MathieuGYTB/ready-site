@@ -22,3 +22,6 @@ monEspace:
     path: /register
     controller: App\Controller\RegistrationController::register
 
+verify:
+    path: /verify/email
+    controller: App\Controller\RegistrationController::verifyUserEmail
