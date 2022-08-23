@@ -18,10 +18,10 @@ class User implements UserInterface, PasswordAuthenticatedUserInterface
     private ?int $id = null;
 
     #[ORM\Column(length: 50)]
-    private ?string $name = null;
+    private ?string $nom = null;
 
     #[ORM\Column(length: 50)]
-    private ?string $firstname = null;
+    private ?string $prenom = null;
 
     #[ORM\Column(length: 180, unique: true)]
     private ?string $email = null;
@@ -43,26 +43,33 @@ class User implements UserInterface, PasswordAuthenticatedUserInterface
         return $this->id;
     }
 
-    public function getName()
+    public function setId(int $id): self
     {
-        return $this->name;
-    }
-
-    public function setName(string $name): self
-    {
-        $this->name = $name;
+        $this->id = $id;
 
         return $this;
     }
 
-    public function getFirstname()
+    public function getNom()
     {
-        return $this->firstname;
+        return $this->nom;
     }
 
-    public function setFirstname(string $firstname): self
+    public function setNom(string $nom): self
     {
-        $this->firstname = $firstname;
+        $this->nom = $nom;
+
+        return $this;
+    }
+
+    public function getPrenom()
+    {
+        return $this->prenom;
+    }
+
+    public function setPrenom(string $prenom): self
+    {
+        $this->prenom = $prenom;
         
         return $this;
     }
