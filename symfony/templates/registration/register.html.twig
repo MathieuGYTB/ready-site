@@ -1,10 +1,10 @@
 {% extends "base.html.twig" %}
-{% block title %}Login{% endblock %}
+{% block title %}s'enregistrer{% endblock %}
 {% block body %}
      {% for flash_error in app.flashes('verify_email_error') %}
         <div class="alert alert-danger" role="alert">{{ flash_error }}</div>
     {% endfor %}
-    <main>
+    <header>
         <nav class="navbar sticky-top navbar-expand-lg navbar-dark bg-secondary">
             <div class="container-fluid">
                 <a class="navbar-brand" href="/">Accueil</a>
@@ -32,7 +32,8 @@
                 </div>
             </div>
         </nav>
-   
+    </header>
+    <main>
         <section>
             <h1>S'inscrire</h1>
             
