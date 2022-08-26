@@ -39,8 +39,8 @@ class RegistrationController extends AbstractController
                     $form->get('plainPassword')->getData()
                 )
             );
-        
-        $user->setRoles(['ROLES_USER']);
+            
+            $user->setRoles(['ROLES_USER']);
             $entityManager->persist($user);
             $entityManager->flush();
 
@@ -49,7 +49,7 @@ class RegistrationController extends AbstractController
                 (new TemplatedEmail())
                     ->from(new Address('guyotmathieu572@gmail.com', 'MG Production'))
                     ->to($user->getEmail())
-                    ->subject('Please Confirm your Email')
+                    ->subject('Confirmez votre email')
                     ->htmlTemplate('registration/confirmation_email.html.twig')
             );
             // do anything else you need here, like send an email

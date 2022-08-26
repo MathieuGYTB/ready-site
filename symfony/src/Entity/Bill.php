@@ -6,6 +6,7 @@ use App\Repository\BillRepository;
 use Doctrine\DBAL\Types\Types;
 use Doctrine\ORM\Mapping as ORM;
 
+
 #[ORM\Entity(repositoryClass: BillRepository::class)]
 class Bill
 {
@@ -14,17 +15,17 @@ class Bill
     #[ORM\Column]
     private ?int $id = null;
 
-    #[ORM\OneToOne(inversedBy: 'bill', cascade: ['persist', 'remove'])]
+    #[ORM\OneToOne(inversedBy: 'User', cascade: ['persist', 'remove'])]
     #[ORM\JoinColumn(nullable: false)]
-    private ?user $name = null;
+    private ?User $nom = null;
 
     #[ORM\OneToOne(cascade: ['persist', 'remove'])]
     #[ORM\JoinColumn(nullable: false)]
-    private ?user $firstname = null;
+    private ?User $prenom = null;
 
     #[ORM\OneToOne(cascade: ['persist', 'remove'])]
     #[ORM\JoinColumn(nullable: false)]
-    private ?user $email = null;
+    private ?User $email = null;
 
     #[ORM\Column(length: 255)]
     private ?string $description = null;
@@ -43,26 +44,26 @@ class Bill
         return $this->id;
     }
 
-    public function getName(): ?user
+    public function getNom(): ?user
     {
-        return $this->name;
+        return $this->nom;
     }
 
-    public function setName(user $name): self
+    public function setNom(user $nom): self
     {
-        $this->name = $name;
+        $this->nom = $nom;
 
         return $this;
     }
 
-    public function getFirstname(): ?user
+    public function getPrenom(): ?user
     {
-        return $this->firstname;
+        return $this->prenom;
     }
 
-    public function setFirstname(user $firstname): self
+    public function setPrenom(user $prenom): self
     {
-        $this->firstname = $firstname;
+        $this->prenom = $prenom;
 
         return $this;
     }

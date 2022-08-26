@@ -3,11 +3,11 @@ index:
     controller: App\Controller\DefaultController::index
 
 contact:
-    path: /contact
+    path: /profile/contact
     controller: App\Controller\DefaultController::contact
 
 commandez:
-    path: /commandez
+    path: /profile/commandez
     controller: App\Controller\DefaultController::commandez
 
 cgv:
@@ -29,3 +29,4 @@ app_verify_email:
 app_login:
     path: /login
     controller: App\Controller\SecurityController::login
+
