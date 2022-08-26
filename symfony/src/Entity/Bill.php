@@ -12,19 +12,19 @@ class Bill
 {
     #[ORM\Id]
     #[ORM\GeneratedValue]
-    #[ORM\Column]
+    #[ORM\Column(name:'id')]
     private ?int $id = null;
 
-    #[ORM\OneToOne(inversedBy: 'User', cascade: ['persist', 'remove'])]
-    #[ORM\JoinColumn(nullable: false)]
+    #[ORM\OneToOne(targetEntity: User::class, inversedBy: 'Bill', cascade: ['persist', 'remove'])]
+    #[ORM\JoinColumn(referencedColumnName:"nom", nullable: false)]
     private ?User $nom = null;
 
-    #[ORM\OneToOne(cascade: ['persist', 'remove'])]
-    #[ORM\JoinColumn(nullable: false)]
+    #[ORM\OneToOne(targetEntity: User::class, inversedBy: 'Bill',cascade: ['persist', 'remove'])]
+    #[ORM\JoinColumn(referencedColumnName:"prenom",nullable: false)]
     private ?User $prenom = null;
 
-    #[ORM\OneToOne(cascade: ['persist', 'remove'])]
-    #[ORM\JoinColumn(nullable: false)]
+    #[ORM\OneToOne(targetEntity: User::class, inversedBy: 'Bill',cascade: ['persist', 'remove'])]
+    #[ORM\JoinColumn(referencedColumnName:"email",nullable: false)]
     private ?User $email = null;
 
     #[ORM\Column(length: 255)]
