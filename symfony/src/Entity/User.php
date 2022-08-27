@@ -18,10 +18,10 @@ class User implements UserInterface, PasswordAuthenticatedUserInterface
     #[ORM\Column]
     private ?int $id = null;
 
-    #[ORM\Column(length: 100)]
+    #[ORM\Column(length: 35)]
     private ?string $nom = null;
 
-    #[ORM\Column(length: 100)]
+    #[ORM\Column(length: 35)]
     private ?string $prenom = null;
 
     #[ORM\Column(length: 180, unique: true)]
@@ -38,12 +38,7 @@ class User implements UserInterface, PasswordAuthenticatedUserInterface
 
     #[ORM\Column(type: 'boolean')]
     private $isVerified = false;
-
-    #[ORM\OneToOne(targetEntity: Bill::class, mappedBy: 'User',cascade: ['persist', 'remove'])]
-    #[ORM\JoinColumn(name: 'id',referencedColumnName:"id",nullable: false)]
-    private ?bill $billId = null;
     
-
     public function getId(): ?int
     {
         return $this->id;
@@ -159,18 +154,6 @@ class User implements UserInterface, PasswordAuthenticatedUserInterface
     public function setIsVerified(bool $isVerified): self
     {
         $this->isVerified = $isVerified;
-
-        return $this;
-    }
-
-    public function getBillId(): ?int
-    {
-        return $this->billId;
-    }
-
-    public function setBillId(int $billId): self
-    {
-        $this->billId = $billId;
 
         return $this;
     }

@@ -13,7 +13,7 @@ use Symfony\Component\Validator\Constraints\Length;
 use Symfony\Component\Validator\Constraints\NotBlank;
 use Symfony\Component\Form\Extension\Core\Type\TextType;
 use Symfony\Component\Form\Extension\Core\Type\EmailType;
-use Symfony\Component\Form\Extension\Core\Type\UuidType;
+
 
 
 
@@ -28,7 +28,7 @@ class RegistrationFormType extends AbstractType
                         'min' => 1,
                             'minMessage' => 'Your password should be at least {{ limit }} characters',
                             // max length allowed by Symfony for security reasons
-                            'max' => 50,
+                            'max' => 35,
                     ])
                 ]
             ])
@@ -38,7 +38,7 @@ class RegistrationFormType extends AbstractType
                         'min' => 1,
                             'minMessage' => 'Your password should be at least {{ limit }} characters',
                             // max length allowed by Symfony for security reasons
-                            'max' => 50,
+                            'max' => 35,
                     ])
                 ]
             ])

@@ -12,20 +12,8 @@ class Bill
 {
     #[ORM\Id]
     #[ORM\GeneratedValue]
-    #[ORM\Column(name:'id')]
+    #[ORM\Column]
     private ?int $id = null;
-
-    #[ORM\OneToOne(targetEntity: User::class, inversedBy: 'Bill', cascade: ['persist', 'remove'])]
-    #[ORM\JoinColumn(referencedColumnName:"nom", nullable: false)]
-    private ?User $nom = null;
-
-    #[ORM\OneToOne(targetEntity: User::class, inversedBy: 'Bill',cascade: ['persist', 'remove'])]
-    #[ORM\JoinColumn(referencedColumnName:"prenom",nullable: false)]
-    private ?User $prenom = null;
-
-    #[ORM\OneToOne(targetEntity: User::class, inversedBy: 'Bill',cascade: ['persist', 'remove'])]
-    #[ORM\JoinColumn(referencedColumnName:"email",nullable: false)]
-    private ?User $email = null;
 
     #[ORM\Column(length: 255)]
     private ?string $description = null;
@@ -40,44 +28,15 @@ class Bill
     private ?string $money = null;
 
     public function getId(): ?int
-    {
+    { 
         return $this->id;
     }
 
-    public function getNom(): ?user
+    public function setId(int $id): ?int
     {
-        return $this->nom;
-    }
+        $this->id = $id;
 
-    public function setNom(user $nom): self
-    {
-        $this->nom = $nom;
-
-        return $this;
-    }
-
-    public function getPrenom(): ?user
-    {
-        return $this->prenom;
-    }
-
-    public function setPrenom(user $prenom): self
-    {
-        $this->prenom = $prenom;
-
-        return $this;
-    }
-
-    public function getEmail(): ?user
-    {
-        return $this->email;
-    }
-
-    public function setEmail(user $email): self
-    {
-        $this->email = $email;
-
-        return $this;
+        return $this->id;
     }
 
     public function getDescription(): ?string
