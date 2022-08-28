@@ -3,18 +3,47 @@
 {% block title %}Bonjour UserController!{% endblock %}
 
 {% block body %}
-<style>
-    .example-wrapper { margin: 1em auto; max-width: 800px; width: 95%; font: 18px/1.5 sans-serif; }
-    .example-wrapper code { background: #F5F5F5; padding: 2px 6px; }
-</style>
-
-<div class="example-wrapper">
-    <h1>Bonjour {{ controller_name }}! ✅</h1>
-
-    Ce message amical vient de :
-    <ul>
-        <li>Votre controller à <code><a href="{{ 'C:/wamp64/www/ready-site/symfony/src/Controller/UserController.php'|file_link(0) }}">src/Controller/UserController.php</a></code></li>
-        <li>Votre template à <code><a href="{{ 'C:/wamp64/www/ready-site/symfony/templates/user/index.html.twig'|file_link(0) }}">templates/user/index.html.twig</a></code></li>
-    </ul>
-</div>
+    <style>
+        .example-wrapper { margin: 1em auto; max-width: 800px; width: 95%; font: 18px/1.5 sans-serif; }
+        .example-wrapper code { background: #F5F5F5; padding: 2px 6px; }
+    </style>
+    <header>
+    <!--Navbar-->
+    <nav class="navbar sticky-top navbar-expand-lg navbar-dark bg-secondary">
+        <div class="container-fluid">
+            <a class="navbar-brand" href="/">Accueil</a>
+        <div class="collapse navbar-collapse" id="navbarColor02">
+            <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+                <li class="nav-item">
+                    <a class="nav-link active" href="/profile/commandez">Achetez le pack de démarage</a>
+                </li>
+                <li class="nav-item">
+                    <a id="CGV" class="nav-link" href="/cgv">Conditions générales de vente</a>
+                </li>
+                <li class="nav-item">
+                    <a id="RGPD" class="nav-link" aria-current="page" href="/rgpd">Réglementation concernant les données personnelles</a>
+                </li>
+                <li class="nav-item">
+                    <a id="contact" class="nav-link" aria-current="page" href="/profile/contact">Contact</a>
+                </li>
+                <li class="nav-item">
+                    <a id="connecter" class="nav-link" aria-current="page" href="/register">s'enregistrer</a>
+                </li>
+                <li class="nav-item">
+                    <a id="login" class="nav-link" aria-current="page" href="/login">se connecter</a>
+                </li>
+                <li class="nav-item">
+                    <a id="user" class="nav-link active" aria-current="page" href="profile/user">mon espace</a>
+                </li>
+            </ul>
+            </div>
+        </div>
+        </nav>
+    </header>
+    <main>
+        <section>
+            <div class="example-wrapper">
+                <h1>Bonjour {{app.user.nom}} {{ app.user.prenom }}! ✅</h1>
+        </section>
+    <main>
 {% endblock %}

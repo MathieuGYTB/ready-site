@@ -33,3 +33,7 @@ app_login:
 app_logout:
     path: /logout
     controller: App\Controller\SecurityController::logout
+
+app_user:
+    path: /profile/user
+    controller: App\Controller\DefaultController::user 

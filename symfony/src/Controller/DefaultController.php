@@ -23,7 +23,7 @@ class DefaultController extends AbstractController
     #[Route('/profile/contact', name: 'contact')]
     public function contact()
     {
-      return $this->render(view: 'default/contact.html.twig');
+      return $this->render(view: 'contact/contact.html.twig');
     }
 
     /**
@@ -52,17 +52,10 @@ class DefaultController extends AbstractController
     }
 
     /**
-     * @Route("/monEspace")
+     * @Route("/profile/user")
      */
-    public function register()
+    public function user()
     {
-      return $this->render(view: 'registration/register.html.twig');
-    }
-    /**
-     * @Route("/login")
-     */
-    public function login()
-    {
-      return $this->render(view: 'security/login.html.twig');
+      return $this->render(view: 'user/user.html.twig');
     }
 }
