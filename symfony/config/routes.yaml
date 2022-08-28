@@ -36,4 +36,4 @@ app_logout:
 
 app_user:
     path: /profile/user
-    controller: App\Controller\DefaultController::user 
+    controller: App\Controller\UserController::user 

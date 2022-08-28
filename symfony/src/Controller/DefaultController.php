@@ -3,7 +3,6 @@ namespace App\Controller;
 
 
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
-use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
 
 class DefaultController extends AbstractController
@@ -49,13 +48,5 @@ class DefaultController extends AbstractController
     public function rgpd()
     {
       return $this->render(view: 'default/rgpd.html.twig');
-    }
-
-    /**
-     * @Route("/profile/user")
-     */
-    public function user()
-    {
-      return $this->render(view: 'user/user.html.twig');
     }
 }
