@@ -69,22 +69,22 @@
                     </thead>
                     <tbody>
                         <tr>
-                            <td>{{ description }}</td>
-                            <td>{{ quantity }}</td>
-                            <td>{{ price }}</td>
-                            <td>{{ money }}</td>
+                            <td class="description"></td>
+                            <td class="quantity"></td>
+                            <td class="price"></td>
+                            <td class="money"></td>
                         </tr>
                     </tbody>
                     <tfoot>
                         <tr>
                             <td colspan="2">total</td>
-                            <td>{{ price }}</td>
-                            <td>{{ money }}</td>
+                            <td class="price"></td>
+                            <td class="money"></td>
                         </tr>
                         <tr>
                             <td colspan="2">payé</td>
-                            <td>{{ price }}</td>
-                            <td>{{ money }}</td>
+                            <td class="price"></td>
+                            <td class="money"></td>
                         </tr>
                     </tfoot>
                 </table>-->
@@ -93,4 +93,7 @@
                 {% endif %}
         </section>
     <main>
+    <script src="{{asset('js/jquery.js')}}"></script>
+    <script src="{{asset('js/bootstrap.js')}}"></script>
+    <script src="{{asset('js/script.js')}}" type="module"></script>
 {% endblock %}

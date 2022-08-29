@@ -26,20 +26,12 @@ class UserController extends AbstractController
       $prenom = ucfirst($prenom);
       $email = $this->getUser()->getEmail();
       $id = $this->getUser()->getBillId();
-      $description = 'pack de démarrage';
-      $quantity = '1';
-      $price = '29,99';
-      $money = 'euros';
 
       return $this->render(view: 'user/user.html.twig', parameters:[
         'nom'=> $nom,
         'prenom' => $prenom,
         'email' => $email,
         'id' => $id,
-        'description' => $description,
-        'quantité' => $quantity,
-        'prix' => $price,
-        'monaie' => $money
       ]);
     }
 }
