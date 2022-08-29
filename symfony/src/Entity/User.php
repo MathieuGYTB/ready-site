@@ -38,6 +38,9 @@ class User implements UserInterface, PasswordAuthenticatedUserInterface
 
     #[ORM\Column(type: 'boolean')]
     private $isVerified = false;
+
+    #[ORM\OneToOne(inversedBy: 'userId', cascade: ['persist', 'remove'])]
+    private ?Bill $billId = null;
     
     public function getId(): ?int
     {
@@ -154,6 +157,18 @@ class User implements UserInterface, PasswordAuthenticatedUserInterface
     public function setIsVerified(bool $isVerified): self
     {
         $this->isVerified = $isVerified;
+
+        return $this;
+    }
+
+    public function getBillId(): ?bill
+    {
+        return $this->billId;
+    }
+
+    public function setBillId(?bill $billId): self
+    {
+        $this->billId = $billId;
 
         return $this;
     }

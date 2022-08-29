@@ -33,7 +33,7 @@
                     <a id="login" class="nav-link" aria-current="page" href="/login">se connecter/se déconnecter</a>
                 </li>
                 <li class="nav-item">
-                    <a id="user" class="nav-link active" aria-current="page" href="profile/user">mon espace</a>
+                    <a id="user" class="nav-link active" aria-current="page" href="/profile/user">mon espace</a>
                 </li>
             </ul>
             </div>
@@ -45,17 +45,15 @@
             <div class="example-wrapper">
                 <h1>Bonjour {{ prenom }} ! ✅</h1>
                 <br/>
-                <h2>Vos coordonées :</h2>
+                <h2>Vos données personnelles :</h2>
                 <div>{{ nom }} {{ prenom }}</div>
                 <div>{{ email }}</div>
                 <br/>
                 <h2>Votre facture : </h2>
                 <br/>
                 
-                <div>Vous n'avez pas de facture.</div>
-                
-                
-                <!--<div>Facture N° </div>
+                {% if id %}
+                <div>Facture N° {{ id }}</div>
                 <br/>
                 <div>{{ nom }} {{ prenom }}</div>
                 <div>{{ email }}</div>
@@ -71,25 +69,28 @@
                     </thead>
                     <tbody>
                         <tr>
-                            <td>pack de démarrage</td>
-                            <td>1</td>
-                            <td>29,99</td>
-                            <td>euros</td>
+                            <td>{{ description }}</td>
+                            <td>{{ quantity }}</td>
+                            <td>{{ price }}</td>
+                            <td>{{ money }}</td>
                         </tr>
                     </tbody>
                     <tfoot>
                         <tr>
                             <td colspan="2">total</td>
-                            <td>29,99</td>
-                            <td>euros</td>
+                            <td>{{ price }}</td>
+                            <td>{{ money }}</td>
                         </tr>
                         <tr>
                             <td colspan="2">payé</td>
-                            <td>29,99</td>
-                            <td>euros</td>
+                            <td>{{ price }}</td>
+                            <td>{{ money }}</td>
                         </tr>
                     </tfoot>
                 </table>-->
+                {% else %}
+                    <div>Vous n'avez pas de facture.</div>
+                {% endif %}
         </section>
     <main>
 {% endblock %}

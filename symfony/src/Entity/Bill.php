@@ -27,6 +27,9 @@ class Bill
     #[ORM\Column(length: 5)]
     private ?string $money = null;
 
+    #[ORM\OneToOne(mappedBy: 'billId', cascade: ['persist', 'remove'])]
+    private ?User $userId = null;
+
     public function getId(): ?int
     { 
         return $this->id;
@@ -83,6 +86,28 @@ class Bill
     public function setMoney(string $money): self
     {
         $this->money = $money;
+
+        return $this;
+    }
+
+    public function getUserId(): ?User
+    {
+        return $this->userId;
+    }
+
+    public function setUserId(?User $userId): self
+    {
+        // unset the owning side of the relation if necessary
+        if ($userId === null && $this->userId !== null) {
+            $this->userId->setBillId(null);
+        }
+
+        // set the owning side of the relation if necessary
+        if ($userId !== null && $userId->getBillId() !== $this) {
+            $userId->setBillId($this);
+        }
+
+        $this->userId = $userId;
 
         return $this;
     }
