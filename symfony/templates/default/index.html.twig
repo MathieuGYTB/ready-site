@@ -9,7 +9,7 @@
         <div class="collapse navbar-collapse" id="navbarColor02">
           <ul class="navbar-nav me-auto mb-2 mb-lg-0">
             <li class="nav-item">
-              <a class="nav-link" href="/profile/commandez">Achetez le pack de démarage</a>
+              <a class="nav-link" href="/profile/commandez">Achetez le pack de démarrage</a>
             </li>
             <li class="nav-item">
               <a id="CGV" class="nav-link" href="/cgv">Conditions générales de vente</a>
@@ -41,8 +41,8 @@
       <br/>
       <p>Vous recherchez un job facile et peu chronophage pour compléter vos revenus ? 
         Vous désirez être indépendant et travailler de où vous voulez et quand vous voulez ?
-        Alors vous êtes au bon endroit. J'ai l'immense plaisir de vous présenter le pack de démarage 
-        qui vous permettra d'arrondir vos fin de mois sans vous prendre énormément de temps. 
+        Alors vous êtes au bon endroit. {{ admin_company }} a l'immense plaisir de vous présenter le pack de démarrage 
+        qui vous permettra d'arrondir vos fins de mois sans vous prendre énormément de temps. 
         La seule chose dont vous aurez besoin est d'un ordinateur et d'une connection à internet.</p>
       <br/>
       <img id="pack" src="{{asset('images/pack.png')}}" alt="pack"/>
@@ -55,18 +55,19 @@
       <br/>
       <br/>
       <br/>
-      <p>En effet, j'ai créé pour vous un site web autonome. 
+      <p>En effet, {{ admin_company }} a créé pour vous un site web autonome. 
       Une fois personnalisé et en ligne vous n'avez plus rien à faire à part encaisser l'argent de vos ventes et répondre aux éventuelles questions de vos clients.
-      Le site envoie automatiquement aux clients et à vous même un e-mail contenant la facture et le pack de démarage. 
+      Le site envoie automatiquement aux clients un e-mail contenant la facture de suite après l'achat, et un email contenant le pack de démarrage 15 jours après pour 
+      respecter le droit de rétractation de 14 jours prévu par la loi. 
       C'est extrêmement simple : un visiteur arrive sur votre site. S'il est intéressé pour acheter un pack, 
-      il clique sur "Achetez le pack maintenant", il paye et l'envoie de l'e-mail contenant la facture et le pack se fait automatiquement.
+      il clique sur "Achetez le pack maintenant"; il paye et l'envoie de l'e-mail contenant la facture et le pack se fait automatiquement.
       Vous n'avez pas besoin de connaissances particulières. Vous devez juste être majeur, avoir un compte en banque et savoir lire et écrire.
       Tout est expliqué dans les moindres détails et dans un langage compréhensible par tous dans le guide du pack. Vous n'aurez qu'à suivre les instructions une par une pour tout mettre en place facilement.
       Commencez à gagner de l'argent avec internet en quelques clics seulement.
       </p>
       <br/>
       <div class="text-center">
-        <a class="btn btn-success" href="commandez" role="button">Achetez le pack maintenant</a>
+        <a class="btn btn-success" href="/profile/commandez" role="button">Achetez le pack maintenant</a>
       </div>
     </section>
   </main>
