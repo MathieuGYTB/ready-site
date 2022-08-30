@@ -43,24 +43,26 @@
     <main>
         <section>
             <div class="example-wrapper">
-                <h1>Bonjour {{ prenom }} ! ✅</h1>
+                <h1>Bonjour {{ user_firstname }} ! ✅</h1>
                 <br/>
                 <h2>Vos données personnelles :</h2>
-                <div>{{ nom }} {{ prenom }}</div>
-                <div>{{ email }}</div>
+                <div>{{ user_name }} {{ user_firstname }}</div>
+                <div>{{ user_email }}</div>
                 <br/>
                 <h2>Votre facture : </h2>
                 <br/>
                 
-                {% if id %}
-                <div>Facture N° {{ id }}</div>
+                {% if user_bill_id %}
+                <h3>Facture N° {{ user_bill_id }}</h3>
                 <br/>
-                <div>{{ nom }} {{ prenom }}</div>
-                <div>{{ email }}</div>
+                <h4>Client :</h4>
+                <div>{{ user_name }} {{ user_firstname }}</div>
+                <div>{{ user_email }}</div>
                 <br/>
                 <table class="table table-bordered">
                     <thead>
                         <tr>
+                            <th>date</th>
                             <th>designation</th>
                             <th>quantité</th>
                             <th>prix</th>
@@ -69,31 +71,34 @@
                     </thead>
                     <tbody>
                         <tr>
-                            <td class="description"></td>
-                            <td class="quantity"></td>
-                            <td class="price"></td>
-                            <td class="money"></td>
+                            <td></td>
+                            <td>{{ description }}</td>
+                            <td>{{ quantity }}</td>
+                            <td>{{ price }}</td>
+                            <td>{{ money }}</td>
                         </tr>
                     </tbody>
                     <tfoot>
                         <tr>
-                            <td colspan="2">total</td>
-                            <td class="price"></td>
-                            <td class="money"></td>
+                            <td colspan="3">total</td>
+                            <td>{{ price }}</td>
+                            <td>{{ money }}</td>
                         </tr>
                         <tr>
-                            <td colspan="2">payé</td>
-                            <td class="price"></td>
-                            <td class="money"></td>
+                            <td colspan="3">payé</td>
+                            <td>{{ price }}</td>
+                            <td>{{ money }}</td>
                         </tr>
                     </tfoot>
-                </table>-->
+                </table>
+                <br/>
+                <div>TVA non applicable, ART.293B du CGI</div>
+                <br/>
+                <div>{{ admin_company}}, N° de siret: {{ admin_siret}}, code APE: {{ admin_code_APE }}, {{ admin_name }}, {{ admin_address}}, email: {{ admin_email }}, tel: {{ admin_telephone }}</div>
+                <div></div>
                 {% else %}
                     <div>Vous n'avez pas de facture.</div>
                 {% endif %}
         </section>
     <main>
-    <script src="{{asset('js/jquery.js')}}"></script>
-    <script src="{{asset('js/bootstrap.js')}}"></script>
-    <script src="{{asset('js/script.js')}}" type="module"></script>
 {% endblock %}

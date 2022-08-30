@@ -20,18 +20,18 @@ class UserController extends AbstractController
   */
   public function user(): Response
     {
-      $nom = $this->getUser()->getNom();
-      $nom = ucfirst($nom);
-      $prenom = $this->getUser()->getPrenom();
-      $prenom = ucfirst($prenom);
-      $email = $this->getUser()->getEmail();
-      $id = $this->getUser()->getBillId();
+      $user_name = $this->getUser()->getNom();
+      $user_name = ucfirst($user_name);
+      $user_firstname = $this->getUser()->getPrenom();
+      $user_firstname = ucfirst($user_firstname);
+      $user_email = $this->getUser()->getEmail();
+      $user_bill_id = $this->getUser()->getBillId();
 
       return $this->render(view: 'user/user.html.twig', parameters:[
-        'nom'=> $nom,
-        'prenom' => $prenom,
-        'email' => $email,
-        'id' => $id,
+        'user_name'=> $user_name,
+        'user_firstname' => $user_firstname,
+        'user_email' => $user_email,
+        'user_bill_id' => $user_bill_id,
       ]);
     }
 }
