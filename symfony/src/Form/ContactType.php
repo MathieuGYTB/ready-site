@@ -18,6 +18,7 @@ class ContactType extends AbstractType
             ->add('nom', HiddenType::class)
             ->add('prenom', HiddenType::class)
             ->add('email', HiddenType::class)
+            ->add('sujet', TextType::class, ['label' => 'sujet'])
             ->add('message', TextareaType::class, ['label' => 'message'])
             
             

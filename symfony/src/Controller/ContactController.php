@@ -32,12 +32,12 @@ class ContactController extends AbstractController
 
         if ($contactform->isSubmitted() && $contactform->isValid()) {
             $data = $contactform->getData();
-            
-            $user_message = $_POST["message"];
+            $user_sujet = $data["sujet"];
+            $user_message = $data["message"];
             $email = (new TemplatedEmail())
             ->from($user_email)
             ->to($admin_email)
-            ->subject('utilisateur de mon site')
+            ->subject($user_sujet)
             ->text($user_message)
             ->htmlTemplate('contact/email.html.twig')
             ->context([ 

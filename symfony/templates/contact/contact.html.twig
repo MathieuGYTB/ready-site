@@ -37,6 +37,7 @@
   <main>
     <section>
       {{ form_start(contactform) }}
+        {{form_row(contactform.sujet)}}
         {{form_row(contactform.message)}}
         <input class="btn btn-primary" type="submit" />
       {{ form_end(contactform) }}
