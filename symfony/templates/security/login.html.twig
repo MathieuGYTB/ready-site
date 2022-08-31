@@ -55,20 +55,19 @@
             <label for="inputPassword">mot de passe</label>
             <input type="password" name="password" id="inputPassword" class="form-control" autocomplete="current-password" required>
             <div class="checkbox mb-3">
-                    <label>
-                        <input id="checkbox" type="checkbox" name="_show_password"> Voir mot de passe
-                    </label>
-                </div>
+              <label>
+                <input type="checkbox" name="_show_password"> Voir mot de passe
+              </label>
+            </div>
 
             <input type="hidden" name="_csrf_token"
-                value="{{ csrf_token('authenticate') }}"
-            >
+                value="{{ csrf_token('authenticate') }}">
                 
-                <div class="checkbox mb-3">
-                    <label>
-                        <input type="checkbox" name="_remember_me"> Se souvenir de moi
-                    </label>
-                </div>
+            <div class="checkbox mb-3">
+              <label>
+                <input type="checkbox" name="_remember_me"> Se souvenir de moi
+            </label>
+            </div>
             
             <br/>
             <button class="btn btn-lg btn-primary" type="submit">
@@ -79,6 +78,6 @@
         </form>
     </section>
 </main>
-<script src="{{ asset ('js/jquery.js')}}"></script>
-<script src="{{ asset ('js/script.js')}}" type="module"></script>
+
+<script src="{{ asset('js/script.js')}}" type="module"></script>
 {% endblock %}
