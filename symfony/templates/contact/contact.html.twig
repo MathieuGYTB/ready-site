@@ -36,15 +36,10 @@
   </header>
   <main>
     <section>
-      <form method="POST" action="">
-        <label for="objet" class="form-label">Objet</label>
-        <input class="form-control" id="objet" type="text" name="objet" required/>
-        <label for="message" class="form-label">Message</label>
-        <textarea class="form-control" rows="10" id="message" name="message" required></textarea>
-        <br/>
-        <button class="send-button btn-primary" id="submit" type="submit">Envoyer</button>
-
-      </form>
+      {{ form_start(contactform) }}
+        {{form_row(contactform.message)}}
+        <input class="btn btn-primary" type="submit" />
+      {{ form_end(contactform) }}
     </section>
   </main>
 {% endblock %}

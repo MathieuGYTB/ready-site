@@ -2,9 +2,9 @@ index:
     path: /
     controller: App\Controller\DefaultController::index
 
-contact:
+app_contact:
     path: /profile/contact
-    controller: App\Controller\DefaultController::contact
+    controller: App\Controller\ContactController::contact
 
 commandez:
     path: /profile/commandez
