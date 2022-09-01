@@ -42,6 +42,11 @@
     </header>
     <main>
         <section>
+            {% for message in app.flashes('success') %}
+                <div class="alert alert-success">
+                    {{ message }}
+                </div>
+            {% endfor %}
             <div class="example-wrapper">
                 <h1>Bonjour {{ user_firstname }} !</h1>
                 <br/>

@@ -36,8 +36,12 @@
   </header>
   <main>
     <section>
+      {% for message in app.flashes('success') %}
+        <div class="alert alert-success">
+          {{ message }}
+        </div>
+      {% endfor %}
       {{ form_start(contactform) }}
-        {{form_row(contactform.sujet)}}
         {{form_row(contactform.message)}}
         <input class="btn btn-primary" type="submit" />
       {{ form_end(contactform) }}

@@ -8,22 +8,21 @@ use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Bridge\Twig\Mime\TemplatedEmail;
-use Symfony\Component\Mime\Address;
-use Symfony\Component\Mime\Email;
+use App\Service\VariablesService;
 use Symfony\Component\Mailer\MailerInterface;
 
 
 class ContactController extends AbstractController
 {
     #[Route('/profile/contact', name: 'app_contact')]
-    public function contact(Request $request, MailerInterface $mailer): Response
+    public function contact(Request $request, MailerInterface $mailer, VariablesService $variable): Response
     {
         $user_name = $this->getUser()->getNom();
         $user_name = ucfirst($user_name);
         $user_firstname = $this->getUser()->getPrenom();
         $user_firstname = ucfirst($user_firstname);
         $user_email = $this->getUser()->getEmail();
-        $admin_email = 'guyotmathieu572@gmail.com';
+        $admin_email = $variable->variable();
 
 
         $contactform = $this->createForm(ContactType::class, ['nom' => $user_name, 'prenom' => $user_firstname, 'email' => $user_email]);
@@ -31,13 +30,14 @@ class ContactController extends AbstractController
         $contactform->handleRequest($request);
 
         if ($contactform->isSubmitted() && $contactform->isValid()) {
+
             $data = $contactform->getData();
-            $user_sujet = $data["sujet"];
             $user_message = $data["message"];
             $email = (new TemplatedEmail())
             ->from($user_email)
             ->to($admin_email)
-            ->subject($user_sujet)
+            ->replyTo($user_email)
+            ->subject('ready site contact utilisateur')
             ->text($user_message)
             ->htmlTemplate('contact/email.html.twig')
             ->context([ 
@@ -48,6 +48,7 @@ class ContactController extends AbstractController
             ]);
 
             $mailer->send($email);
+            $this->addFlash('success', 'votre e-mail a été envoyé!');
         }  
 
         return $this->render('contact/contact.html.twig', [
