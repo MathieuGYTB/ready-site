@@ -2,26 +2,26 @@
 
 namespace App\Repository;
 
-use App\Entity\Bill;
+use App\Entity\Product;
 use Doctrine\Bundle\DoctrineBundle\Repository\ServiceEntityRepository;
 use Doctrine\Persistence\ManagerRegistry;
 
 /**
- * @extends ServiceEntityRepository<Bill>
+ * @extends ServiceEntityRepository<Product>
  *
- * @method Bill|null find($id, $lockMode = null, $lockVersion = null)
- * @method Bill|null findOneBy(array $criteria, array $orderBy = null)
- * @method Bill[]    findAll()
- * @method Bill[]    findBy(array $criteria, array $orderBy = null, $limit = null, $offset = null)
+ * @method Product|null find($id, $lockMode = null, $lockVersion = null)
+ * @method Product|null findOneBy(array $criteria, array $orderBy = null)
+ * @method Product[]    findAll()
+ * @method Product[]    findBy(array $criteria, array $orderBy = null, $limit = null, $offset = null)
  */
-class BillRepository extends ServiceEntityRepository
+class ProductRepository extends ServiceEntityRepository
 {
     public function __construct(ManagerRegistry $registry)
     {
-        parent::__construct($registry, Bill::class);
+        parent::__construct($registry, Product::class);
     }
 
-    public function add(Bill $entity, bool $flush = false): void
+    public function add(Product $entity, bool $flush = false): void
     {
         $this->getEntityManager()->persist($entity);
 
@@ -30,7 +30,7 @@ class BillRepository extends ServiceEntityRepository
         }
     }
 
-    public function remove(Bill $entity, bool $flush = false): void
+    public function remove(Product $entity, bool $flush = false): void
     {
         $this->getEntityManager()->remove($entity);
 
@@ -40,7 +40,7 @@ class BillRepository extends ServiceEntityRepository
     }
 
 //    /**
-//     * @return Bill[] Returns an array of Bill objects
+//     * @return Product[] Returns an array of Bill objects
 //     */
 //    public function findByExampleField($value): array
 //    {
@@ -54,7 +54,7 @@ class BillRepository extends ServiceEntityRepository
 //        ;
 //    }
 
-//    public function findOneBySomeField($value): ?Bill
+//    public function findOneBySomeField($value): ?Product
 //    {
 //        return $this->createQueryBuilder('b')
 //            ->andWhere('b.exampleField = :val')
