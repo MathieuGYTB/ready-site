@@ -50,11 +50,11 @@
             <div class="example-wrapper">
                 <h1>Bonjour {{ user_firstname }} !</h1>
                 <br/>
-                <div>votre adresse email a été vérifiée ✅</div>
+                <div class="text">votre adresse email a été vérifiée ✅</div>
                 <br/>
                 <h2>Vos données personnelles :</h2>
-                <div>{{ user_name }} {{ user_firstname }}</div>
-                <div>{{ user_email }}</div>
+                <div class="text">{{ user_name }} {{ user_firstname }}</div>
+                <div class="text">{{ user_email }}</div>
                 <br/>
                 <h2>Votre facture : </h2>
                 <br/>
@@ -63,8 +63,8 @@
                 <h3>Facture N° {{ user_notice }}</h3>
                 <br/>
                 <h4>Client :</h4>
-                <div>{{ user_name }} {{ user_firstname }}</div>
-                <div>{{ user_email }}</div>
+                <div class="text">{{ user_name }} {{ user_firstname }}</div>
+                <div class="text">{{ user_email }}</div>
                 <br/>
                 <table class="table table-bordered">
                     <thead>
@@ -99,12 +99,12 @@
                     </tfoot>
                 </table>
                 <br/>
-                <div>TVA non applicable, ART.293B du CGI</div>
+                <div class="text">TVA non applicable, ART.293B du CGI</div>
                 <br/>
-                <div>{{ admin_company}}, N° de siret: {{ admin_siret}}, code APE: {{ admin_code_APE }}, {{ admin_name }}, {{ admin_address}}, email: {{ admin_email }}, tel: {{ admin_telephone }}</div>
+                <div class="text">{{ admin_company}}, N° de siret: {{ admin_siret}}, code APE: {{ admin_code_APE }}, {{ admin_name }}, {{ admin_address}}, email: {{ admin_email }}, tel: {{ admin_telephone }}</div>
                 <div></div>
                 {% else %}
-                    <div>Vous n'avez pas de facture.</div>
+                    <div class="text">Vous n'avez pas de facture.</div>
                 {% endif %}
         </section>
     <main>

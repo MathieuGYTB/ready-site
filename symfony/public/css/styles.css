@@ -1,6 +1,8 @@
 #header-image {
   width: 100%;
   height: 400px;
+  margin-right: auto;
+  margin-left: auto;
 }
 
 section {
@@ -16,9 +18,39 @@ p {
   font-size: 25px;
 }
 
+@media screen and (max-width: 660px) {
+  p {
+    font-size: 18px;
+  }
+  .text {
+    font-size: 14px;
+  }
+}
+
+@media screen and (max-width: 400px) {
+  p {
+    font-size: 16px;
+  }
+  .text {
+    font-size: 12px;
+  }
+}
+
+@media screen and (max-width: 370px) {
+  p {
+    font-size: 14px;
+  }
+  .text {
+    font-size: 10px;
+  }
+}
+
 #monnaie {
   width: 50%;
-  margin-left: 300px;
+}
+
+.img {
+  text-align: center;
 }
 
 body {
@@ -26,8 +58,57 @@ body {
 }
 
 #pack {
-  margin-left: 300px;
+  margin-left: auto;
+  margin-right: auto;
   width: 50%;
   height: 600px;
+}
+
+@media screen and (max-width: 900px) {
+  #pack {
+    height: 400px;
+  }
+}
+
+@media screen and (max-width: 800px) {
+  #pack {
+    height: 300px;
+  }
+}
+
+@media screen and (max-width: 700px) {
+  #pack {
+    height: 200px;
+  }
+}
+
+@media screen and (max-width: 500px) {
+  #pack {
+    height: 100px;
+  }
+}
+
+@media screen and (max-width: 660px) {
+  h1 {
+    font-size: 18px;
+  }
+  h2 {
+    font-size: 16px;
+  }
+  h3 {
+    font-size: 14px;
+  }
+}
+
+@media screen and (max-width: 470px) {
+  h1 {
+    font-size: 16px;
+  }
+  h2 {
+    font-size: 14px;
+  }
+  h3 {
+    font-size: 10px;
+  }
 }
 /*# sourceMappingURL=styles.css.map */
