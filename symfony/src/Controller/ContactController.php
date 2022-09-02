@@ -22,7 +22,8 @@ class ContactController extends AbstractController
         $user_firstname = $this->getUser()->getPrenom();
         $user_firstname = ucfirst($user_firstname);
         $user_email = $this->getUser()->getEmail();
-        $admin_email = $variable->variable();
+        $admin_email = $variable->adminEmail();
+        
 
 
         $contactform = $this->createForm(ContactType::class, ['nom' => $user_name, 'prenom' => $user_firstname, 'email' => $user_email]);
@@ -34,7 +35,7 @@ class ContactController extends AbstractController
             $data = $contactform->getData();
             $user_message = $data["message"];
             $email = (new TemplatedEmail())
-            ->from($user_email)
+            ->from($admin_email)
             ->to($admin_email)
             ->replyTo($user_email)
             ->subject('ready site contact utilisateur')

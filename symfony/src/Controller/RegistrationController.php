@@ -31,7 +31,8 @@ class RegistrationController extends AbstractController
         $user = new User();
         $form = $this->createForm(RegistrationFormType::class, $user);
         $form->handleRequest($request);
-        $admin_email = $variable->variable();
+        $admin_email = $variable->adminEmail();
+        $admin_company = $variable->adminCompanyName();
 
         if ($form->isSubmitted() && $form->isValid()) {
             $user->setEmail($user->getEmail());
@@ -49,7 +50,7 @@ class RegistrationController extends AbstractController
             // generate a signed url and email it to the user
             $this->emailVerifier->sendEmailConfirmation('app_verify_email', $user,
                 (new TemplatedEmail())
-                    ->from(new Address($admin_email, 'MG Production'))
+                    ->from(new Address($admin_email, $admin_company))
                     ->to($user->getEmail())
                     ->subject('Confirmez votre email')
                     ->htmlTemplate('registration/confirmation_email.html.twig')

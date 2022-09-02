@@ -24,8 +24,11 @@ class Product
     #[ORM\Column(type: Types::DECIMAL, precision: 4, scale: 2)]
     private ?string $price = null;
 
-    #[ORM\Column(length: 5)]
+    #[ORM\Column(length: 20)]
     private ?string $money = null;
+
+    #[ORM\OneToOne(mappedBy: 'productid', cascade: ['persist', 'remove'])]
+    private ?Notice $notice = null;
 
 
     public function getId(): ?int
@@ -84,6 +87,23 @@ class Product
     public function setMoney(string $money): self
     {
         $this->money = $money;
+
+        return $this;
+    }
+
+    public function getNotice(): ?Notice
+    {
+        return $this->notice;
+    }
+
+    public function setNotice(Notice $notice): self
+    {
+        // set the owning side of the relation if necessary
+        if ($notice->getProductid() !== $this) {
+            $notice->setProductid($this);
+        }
+
+        $this->notice = $notice;
 
         return $this;
     }
