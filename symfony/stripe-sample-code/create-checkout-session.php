@@ -6,7 +6,7 @@ require 'vendor/autoload.php';
 
 header('Content-Type: application/json');
 
-$YOUR_DOMAIN = 'http://localhost:4242/public';
+$YOUR_DOMAIN = 'http://symfony.localhost';
 
 $checkout_session = \Stripe\Checkout\Session::create([
   'line_items' => [[
