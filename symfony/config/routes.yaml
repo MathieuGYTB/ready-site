@@ -45,3 +45,7 @@ app_verify:
 app_checkout:
     path: /checkout
     controller: App\Controller\PaymentController::checkout
+
+app_success:
+    path: /success
+    controller: App\Controller\PaymentController::success
