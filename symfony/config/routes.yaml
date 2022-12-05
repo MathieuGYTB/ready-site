@@ -41,3 +41,4 @@ app_user:
 app_verify:
     path: /verifylink
     controller: App\Controller\RegistrationController::verify
+
