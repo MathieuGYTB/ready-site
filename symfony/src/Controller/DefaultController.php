@@ -31,7 +31,7 @@ class DefaultController extends AbstractController
     #[Route('/profile/commandez', name: 'commandez')]
     public function commandez()
     {
-      return $this->render(view: 'default/commandez.html.twig');
+      return $this->render(view: 'default/checkout.html.twig');
     }
 
     /**
