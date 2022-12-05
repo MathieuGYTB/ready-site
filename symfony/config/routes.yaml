@@ -42,3 +42,6 @@ app_verify:
     path: /verifylink
     controller: App\Controller\RegistrationController::verify
 
+app_checkout:
+    path: /checkout
+    controller: App\Controller\PaymentController::checkout
