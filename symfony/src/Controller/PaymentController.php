@@ -8,7 +8,7 @@ use Symfony\Component\Routing\Annotation\Route;
 
 class PaymentController extends AbstractController
 {
-    #[Route('/checkout', name: 'app_checkout')]
+    #[Route('/profile/commandez', name: 'commandez')]
     public function checkout($stripeSK): Response
     {
         \Stripe\Stripe::setApiKey($stripeSK);
@@ -23,7 +23,7 @@ class PaymentController extends AbstractController
             ]],
             'mode' => 'payment',
             'success_url' => $YOUR_DOMAIN . '/success',
-            'cancel_url' => $YOUR_DOMAIN . '/profile/commandez',
+            'cancel_url' => $YOUR_DOMAIN . '/',
             'automatic_tax' => [
                 'enabled' => true,
             ],
@@ -35,6 +35,6 @@ class PaymentController extends AbstractController
     #[Route('/success', name: 'app_success')]
     public function success(): Response
     {
-        return $this->render(view: 'default/success.html.twig');
+        return $this->render(view: 'payment/success.html.twig');
     }
 }

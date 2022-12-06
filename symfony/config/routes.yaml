@@ -8,7 +8,7 @@ app_contact:
 
 commandez:
     path: /profile/commandez
-    controller: App\Controller\DefaultController::commandez
+    controller: App\Controller\PaymentController::checkout
 
 cgv:
     path: /cgv
@@ -41,10 +41,6 @@ app_user:
 app_verify:
     path: /verifylink
     controller: App\Controller\RegistrationController::verify
-
-app_checkout:
-    path: /checkout
-    controller: App\Controller\PaymentController::checkout
 
 app_success:
     path: /success

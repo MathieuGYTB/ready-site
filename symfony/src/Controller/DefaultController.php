@@ -17,24 +17,6 @@ class DefaultController extends AbstractController
     }
 
     /**
-     * @Route("/profile/contact")
-     */
-    #[Route('/profile/contact', name: 'contact')]
-    public function contact()
-    {
-      return $this->render(view: 'contact/contact.html.twig');
-    }
-
-    /**
-     * @Route("/profile/commandez")
-     */
-    #[Route('/profile/commandez', name: 'commandez')]
-    public function commandez()
-    {
-      return $this->render(view: 'default/checkout.html.twig');
-    }
-
-    /**
      * @Route("/cgv")
      */
     public function cgv()
