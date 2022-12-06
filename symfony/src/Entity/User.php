@@ -24,6 +24,12 @@ class User implements UserInterface, PasswordAuthenticatedUserInterface
     #[ORM\Column(length: 35)]
     private ?string $prenom = null;
 
+    #[ORM\Column(length: 100)]
+    private ?string $adresse = null;
+
+    #[ORM\Column(length: 50)]
+    private ?string $pays = null;
+
     #[ORM\Column(length: 180, unique: true)]
     private ?string $email = null;
 
@@ -77,6 +83,31 @@ class User implements UserInterface, PasswordAuthenticatedUserInterface
         
         return $this;
     }
+
+    public function getAdresse()
+    {
+        return $this->adresse;
+    }
+
+    public function setAdresse(string $adresse)
+    {
+        $this->adresse = $adresse;
+
+        return $this;
+    }
+
+    public function getPays()
+    {
+        return $this->pays;
+    }
+
+    public function setPays(string $pays)
+    {
+        $this->pays = $pays;
+
+        return $this;
+    }
+
     public function getEmail(): string
     {
         return $this->email;

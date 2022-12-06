@@ -42,6 +42,26 @@ class RegistrationFormType extends AbstractType
                     ])
                 ]
             ])
+            ->add('adresse', TextType::class, [
+                'constraints' => [
+                    new Length([
+                        'min' => 1,
+                            'minMessage' => 'votre adresse doit contenir au moins {{ limit }} caractères',
+                            // max length allowed by Symfony for security reasons
+                            'max' => 100,
+                    ])
+                ]
+            ])
+            ->add('pays', TextType::class, [
+                'constraints' => [
+                    new Length([
+                        'min' => 1,
+                            'minMessage' => 'votre pays doit contenir au moins {{ limit }} caractères',
+                            // max length allowed by Symfony for security reasons
+                            'max' => 100,
+                    ])
+                ]
+            ])              
             ->add('email', EmailType::class, [
                 'constraints' => [
                     new Length([

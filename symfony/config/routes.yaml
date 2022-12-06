@@ -43,5 +43,5 @@ app_verify:
     controller: App\Controller\RegistrationController::verify
 
 app_success:
-    path: /success
+    path: /profile/success
     controller: App\Controller\PaymentController::success

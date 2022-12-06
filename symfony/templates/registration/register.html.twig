@@ -45,6 +45,12 @@
                     <br/>
                         {{ form_row(registrationForm.prenom) }}
                     <br/>
+                        {{ form_row(registrationForm.adresse, {
+                            label: 'adresse complete (exemple: 1 rue du faubourg 67000 Strasbourg)'
+                        }) }}
+                    <br/>
+                        {{ form_row(registrationForm.pays) }}
+                    <br/>
                         {{ form_row(registrationForm.email) }}
                     <br/>
                         {{ form_row(registrationForm.plainPassword, {
