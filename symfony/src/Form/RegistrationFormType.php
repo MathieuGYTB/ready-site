@@ -58,7 +58,7 @@ class RegistrationFormType extends AbstractType
                         'min' => 1,
                             'minMessage' => 'votre pays doit contenir au moins {{ limit }} caractères',
                             // max length allowed by Symfony for security reasons
-                            'max' => 100,
+                            'max' => 50,
                     ])
                 ]
             ])              
