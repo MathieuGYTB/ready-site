@@ -17,14 +17,17 @@ class PaymentController extends AbstractController
         $user_email = $this->getUser()->getEmail();
 
         $checkout_session = \Stripe\Checkout\Session::create([
+            'consent_collection' => [
+                'terms_of_service' => 'required',
+            ],
             'customer_email' => $user_email,
             'line_items' => [[
                 # Provide the exact Price ID (e.g. pr_1234) of the product you want to sell
-                'price' => 'price_1MBZBXKgHxrl7uH3ALEzb4uD',
+                'price' => 'price_1MCJ8tKgHxrl7uH3doxadPRv',
                 'quantity' => 1,
             ]],
             'mode' => 'payment',
-            'success_url' => $YOUR_DOMAIN . '/success',
+            'success_url' => $YOUR_DOMAIN . '/profile/success',
             'cancel_url' => $YOUR_DOMAIN . '/',
             'automatic_tax' => [
                 'enabled' => true,
