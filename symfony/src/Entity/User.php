@@ -28,6 +28,12 @@ class User implements UserInterface, PasswordAuthenticatedUserInterface
     private ?string $adresse = null;
 
     #[ORM\Column(length: 50)]
+    private ?string $CP = null;
+
+    #[ORM\Column(length: 50)]
+    private ?string $ville = null;
+
+    #[ORM\Column(length: 50)]
     private ?string $pays = null;
 
     #[ORM\Column(length: 180, unique: true)]
@@ -205,6 +211,46 @@ class User implements UserInterface, PasswordAuthenticatedUserInterface
         }
 
         $this->notice = $notice;
+
+        return $this;
+    }
+
+    /**
+     * Get the value of CP
+     */ 
+    public function getCP()
+    {
+        return $this->CP;
+    }
+
+    /**
+     * Set the value of CP
+     *
+     * @return  self
+     */ 
+    public function setCP($CP)
+    {
+        $this->CP = $CP;
+
+        return $this;
+    }
+
+    /**
+     * Get the value of ville
+     */ 
+    public function getVille()
+    {
+        return $this->ville;
+    }
+
+    /**
+     * Set the value of ville
+     *
+     * @return  self
+     */ 
+    public function setVille($ville)
+    {
+        $this->ville = $ville;
 
         return $this;
     }
