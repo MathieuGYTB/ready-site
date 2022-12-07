@@ -17,6 +17,11 @@ class PaymentController extends AbstractController
         $user_email = $this->getUser()->getEmail();
 
         $checkout_session = \Stripe\Checkout\Session::create([
+            'custom_text' => [
+                'submit' => [
+                    'message' => 'En cliquant sur j\'accepte, vous renoncez à votre droit à un délai de rétractation de 14 jours et ne pourrez demander un remboursement.',
+                ],
+            ],
             'consent_collection' => [
                 'terms_of_service' => 'required',
             ],
@@ -27,6 +32,7 @@ class PaymentController extends AbstractController
                 'quantity' => 1,
             ]],
             'mode' => 'payment',
+            'allow_promotion_codes' => true,
             'success_url' => $YOUR_DOMAIN . '/profile/success',
             'cancel_url' => $YOUR_DOMAIN . '/',
             'automatic_tax' => [
