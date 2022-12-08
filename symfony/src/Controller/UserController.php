@@ -22,7 +22,6 @@ class UserController extends AbstractController
       $user_city = $this->getUser()->getVille();
       $user_pays = $this->getUser()->getPays();
       $user_email = $this->getUser()->getEmail();
-      $user_notice = $this->getUser()->getNotice();
 
       return $this->render(view: 'user/user.html.twig', parameters:[
         'user_name'=> $user_name,
@@ -32,7 +31,6 @@ class UserController extends AbstractController
         'user_city' => $user_city,
         'user_pays' => $user_pays,
         'user_email' => $user_email,
-        'user_notice' => $user_notice,
       ]);
     }
 }
