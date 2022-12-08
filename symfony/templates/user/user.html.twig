@@ -59,57 +59,6 @@
                 <div class="text">{{ user_city }}</div>
                 <div class="text">{{ user_pays }}</div>
                 <div class="text">{{ user_email }}</div>
-                <br/>
-                <h2>Votre facture : </h2>
-                <br/>
-                
-                {% if user_notice %}
-                <h3>Facture N° {{ user_notice }}</h3>
-                <br/>
-                <h4>Client :</h4>
-                <div class="text">{{ user_name }} {{ user_firstname }}</div>
-                <div class="text">{{ user_email }}</div>
-                <br/>
-                <table class="table table-bordered">
-                    <thead>
-                        <tr>
-                            <th>date</th>
-                            <th>designation</th>
-                            <th>quantité</th>
-                            <th>prix</th>
-                            <th>monnaie</th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        <tr>
-                            <td></td>
-                            <td>{{ description }}</td>
-                            <td>{{ quantity }}</td>
-                            <td>{{ price }}</td>
-                            <td>{{ money }}</td>
-                        </tr>
-                    </tbody>
-                    <tfoot>
-                        <tr>
-                            <td colspan="3">total</td>
-                            <td>{{ price }}</td>
-                            <td>{{ money }}</td>
-                        </tr>
-                        <tr>
-                            <td colspan="3">payé</td>
-                            <td>{{ price }}</td>
-                            <td>{{ money }}</td>
-                        </tr>
-                    </tfoot>
-                </table>
-                <br/>
-                <div class="text">TVA non applicable, ART.293B du CGI</div>
-                <br/>
-                <div class="text">{{ admin_company}}, N° de siret: {{ admin_siret}}, code APE: {{ admin_code_APE }}, {{ admin_name }}, {{ admin_address}}, email: {{ admin_email }}, tel: {{ admin_telephone }}</div>
-                <div></div>
-                {% else %}
-                    <div class="text">Vous n'avez pas de facture.</div>
-                {% endif %}
         </section>
     <main>
 {% endblock %}
