@@ -9,8 +9,7 @@ section {
   margin: 50px;
   padding: 50px;
   border: 1px solid black;
-  -webkit-box-shadow: 10px 5px 5px black;
-          box-shadow: 10px 5px 5px black;
+  box-shadow: 10px 5px 5px black;
   background-color: white;
 }
 
@@ -26,7 +25,6 @@ p {
     font-size: 14px;
   }
 }
-
 @media screen and (max-width: 400px) {
   p {
     font-size: 16px;
@@ -35,7 +33,6 @@ p {
     font-size: 12px;
   }
 }
-
 @media screen and (max-width: 370px) {
   p {
     font-size: 14px;
@@ -44,7 +41,6 @@ p {
     font-size: 10px;
   }
 }
-
 #monnaie {
   width: 50%;
 }
@@ -69,25 +65,21 @@ body {
     height: 400px;
   }
 }
-
 @media screen and (max-width: 800px) {
   #pack {
     height: 300px;
   }
 }
-
 @media screen and (max-width: 700px) {
   #pack {
     height: 200px;
   }
 }
-
 @media screen and (max-width: 500px) {
   #pack {
     height: 100px;
   }
 }
-
 @media screen and (max-width: 660px) {
   h1 {
     font-size: 18px;
@@ -99,7 +91,6 @@ body {
     font-size: 14px;
   }
 }
-
 @media screen and (max-width: 470px) {
   h1 {
     font-size: 16px;
@@ -110,5 +101,4 @@ body {
   h3 {
     font-size: 10px;
   }
-}
-/*# sourceMappingURL=styles.css.map */
+}/*# sourceMappingURL=styles.css.map */

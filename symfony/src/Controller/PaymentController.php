@@ -15,12 +15,7 @@ class PaymentController extends AbstractController
 
         $YOUR_DOMAIN = 'http://symfony.localhost';
         $user_email = $this->getUser()->getEmail();
-        $user_address = $this->getUser()->getAdresse();
-        $user_CP = $this->getUser()->getCP();
-        $user_city = $this->getUser()->getVille();
-        $user_pays = $this->getUser()->getPays();
         
-
         $checkout_session = \Stripe\Checkout\Session::create([
             'billing_address_collection' => "required",
             'custom_text' => [
