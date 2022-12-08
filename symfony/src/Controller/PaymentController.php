@@ -22,7 +22,7 @@ class PaymentController extends AbstractController
         
 
         $checkout_session = \Stripe\Checkout\Session::create([
-            'billing_address_collection' => 'required',
+            'billing_address_collection' => "required",
             'custom_text' => [
                 'submit' => [
                     'message' => 'En cliquant sur j\'accepte, vous renoncez à votre droit à un délai de rétractation de 14 jours et ne pourrez demander un remboursement.',
