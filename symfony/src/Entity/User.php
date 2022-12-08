@@ -50,9 +50,6 @@ class User implements UserInterface, PasswordAuthenticatedUserInterface
 
     #[ORM\Column(type: 'boolean')]
     private $isVerified = false;
-
-    #[ORM\OneToOne(mappedBy: 'userid', cascade: ['persist', 'remove'])]
-    private ?Notice $notice = null;
     
     public function getId(): ?int
     {
@@ -197,24 +194,7 @@ class User implements UserInterface, PasswordAuthenticatedUserInterface
 
         return $this;
     }
-
-    public function getNotice(): ?Notice
-    {
-        return $this->notice;
-    }
-
-    public function setNotice(Notice $notice): self
-    {
-        // set the owning side of the relation if necessary
-        if ($notice->getUserid() !== $this) {
-            $notice->setUserid($this);
-        }
-
-        $this->notice = $notice;
-
-        return $this;
-    }
-
+    
     /**
      * Get the value of CP
      */ 
