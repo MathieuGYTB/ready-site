@@ -42,10 +42,20 @@ class PaymentController extends AbstractController
             'invoice_creation' => [
                 'enabled' => true,
                 'invoice_data' => [
-                    'custom_fields' => [[
-                        'name' => 'TVA',
-                        'value' => 'TVA non applicable ART293B CGI',
-                        ]],
+                    'custom_fields' => [
+                        [
+                            'name' => 'SIRET',
+                            'value' => '832 189 021 00021',
+                        ],
+                        [
+                            'name' => 'Code APE',
+                            'value' => '6201Z',
+                        ],
+                        [
+                            'name' => 'TVA',
+                            'value' => 'non applicable ART.293B du CGI',
+                        ],
+                    ],
                 ],
             ],
             'success_url' => $YOUR_DOMAIN . '/profile/success',
