@@ -12,8 +12,8 @@ class PaymentController extends AbstractController
     #[Route('/profile/commandez', name: 'commandez')]
     public function checkout(VariablesService $variable_service): Response
     {
-        $stripePSK = $variable_service->stripePSK();
-        \Stripe\Stripe::setApiKey($stripePSK);
+        $stripeSK = $variable_service->stripeSK();
+        \Stripe\Stripe::setApiKey($stripeSK);
 
         $YOUR_DOMAIN = 'http://symfony.localhost';
         $user_email = $this->getUser()->getEmail();

@@ -41,50 +41,7 @@ class RegistrationFormType extends AbstractType
                             'max' => 35,
                     ])
                 ]
-            ])
-            ->add('adresse', TextType::class, [
-                    'attr' => [
-                        'placeholder' => 'exemple: 1 rue du faubourg',
-                    ],
-                    'constraints' => [
-                        new Length([
-                            'min' => 1,
-                                'minMessage' => 'votre adresse doit contenir au moins {{ limit }} caractères',
-                                // max length allowed by Symfony for security reasons
-                                'max' => 100,
-                        ])
-                    ]
-                ])
-            ->add('cp', TextType::class, [
-                'constraints' => [
-                    new Length([
-                        'min' => 5,
-                            'minMessage' => 'votre CP doit contenir au moins {{ limit }} caractères',
-                            // max length allowed by Symfony for security reasons
-                            'max' => 50,
-                    ])
-                ]
-            ])
-            ->add('ville', TextType::class, [
-                'constraints' => [
-                    new Length([
-                        'min' => 1,
-                            'minMessage' => 'votre ville doit contenir au moins {{ limit }} caractères',
-                            // max length allowed by Symfony for security reasons
-                            'max' => 50,
-                    ])
-                ]
-            ])
-            ->add('pays', TextType::class, [
-                'constraints' => [
-                    new Length([
-                        'min' => 1,
-                            'minMessage' => 'votre pays doit contenir au moins {{ limit }} caractères',
-                            // max length allowed by Symfony for security reasons
-                            'max' => 50,
-                    ])
-                ]
-            ])              
+            ])             
             ->add('email', EmailType::class, [
                 'constraints' => [
                     new Length([
