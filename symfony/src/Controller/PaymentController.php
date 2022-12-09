@@ -5,13 +5,15 @@ namespace App\Controller;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
+use App\Service\VariablesService;
 
 class PaymentController extends AbstractController
 {
     #[Route('/profile/commandez', name: 'commandez')]
-    public function checkout($stripeSK): Response
+    public function checkout(VariablesService $variable_service): Response
     {
-        \Stripe\Stripe::setApiKey($stripeSK);
+        $stripePSK = $variable_service->stripePSK();
+        \Stripe\Stripe::setApiKey($stripePSK);
 
         $YOUR_DOMAIN = 'http://symfony.localhost';
         $user_email = $this->getUser()->getEmail();
