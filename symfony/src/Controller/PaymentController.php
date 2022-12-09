@@ -6,6 +6,7 @@ use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
 use App\Service\VariablesService;
+use Doctrine\ORM\EntityManagerInterface;
 
 class PaymentController extends AbstractController
 {
@@ -63,6 +64,7 @@ class PaymentController extends AbstractController
         ]);
 
         return $this->redirect($checkout_session->url, 303);
+        
     }
 
     #[Route('/profile/success', name: 'app_success')]
