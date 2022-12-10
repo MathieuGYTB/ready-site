@@ -1,4 +1,11 @@
-steps:
-  - shell: pwsh
-    env:
-      STRIPE_TEST_SECRET_KEY: ${{ secrets.STRIPE_TEST_SECRET_KEY }}
+name: 
+  secrets
+  on:
+    push:
+      branches:
+        - main
+jobs:
+  steps:
+    - shell: pwsh
+      env:
+        STRIPE_TEST_SECRET_KEY: ${{ secrets.STRIPE_TEST_SECRET_KEY }}
