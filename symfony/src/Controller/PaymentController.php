@@ -75,6 +75,7 @@ class PaymentController extends AbstractController
         $user->setRoles(['ROLE_PAYED']);
         $entityManagerInterface->persist($user);
         $entityManagerInterface->flush();
+        
         return $this->render(view: 'payment/success.html.twig');
     }
 }

@@ -1,9 +1,0 @@
-name: 
-  secrets
-  on:
-    push:
-      branches:
-        - main
-jobs:
-  env:
-    STRIPE_TEST_SECRET_KEY: ${{ secrets.STRIPE_TEST_SECRET_KEY }}

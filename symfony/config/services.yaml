@@ -5,6 +5,8 @@
 # https://symfony.com/doc/current/best_practices.html#use-parameters-for-application-configuration
 parameters:
     stripe_test_secret_key: '%env(STRIPE_TEST_SECRET_KEY)%'
+    stripe_prod_secret_key: '%env(STRIPE_PROD_SECRET_KEY)%'
+    
 services:
     # default configuration for services in *this* file
     _defaults:
