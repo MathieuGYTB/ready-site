@@ -5,7 +5,6 @@ namespace App\Controller;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
-use App\Service\VariablesService;
 use Doctrine\ORM\EntityManagerInterface;
 
 class PaymentController extends AbstractController
@@ -13,8 +12,8 @@ class PaymentController extends AbstractController
     #[Route('/profile/commandez', name: 'commandez')]
     public function checkout(): Response
     {
-        //$stripeSK = $variable_service->stripeSK();
-        $stripeSK = $this->getParameter('app.stripe_test_secret_key');
+    
+        $stripeSK = $this->getParameter('stripe_test_secret_key');
         \Stripe\Stripe::setApiKey($stripeSK);
 
         $YOUR_DOMAIN = 'http://symfony.localhost';
@@ -57,7 +56,7 @@ class PaymentController extends AbstractController
                     ],
                 ],
             ],
-            'success_url' => $YOUR_DOMAIN . '/profile/success',
+            'success_url' => $YOUR_DOMAIN . '/profile/kgfnhtl1616gbvh',
             'cancel_url' => $YOUR_DOMAIN . '/',
             'automatic_tax' => [
                 'enabled' => true,
@@ -68,9 +67,14 @@ class PaymentController extends AbstractController
         
     }
 
-    #[Route('/profile/success', name: 'app_success')]
-    public function success(): Response
+    #[Route('/profile/kgfnhtl1616gbvh', name: 'app_success')]
+    public function success(EntityManagerInterface $entityManagerInterface): Response
     {
+
+        $user = $this->getUser();
+        $user->setRoles(['ROLE_PAYED']);
+        $entityManagerInterface->persist($user);
+        $entityManagerInterface->flush();
         return $this->render(view: 'payment/success.html.twig');
     }
 }

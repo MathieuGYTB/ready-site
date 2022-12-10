@@ -1,0 +1,4 @@
+steps:
+  - shell: pwsh
+    env:
+      STRIPE_TEST_SECRET_KEY: ${{ secrets.STRIPE_TEST_SECRET_KEY }}

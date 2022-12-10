@@ -43,5 +43,5 @@ app_verify:
     controller: App\Controller\RegistrationController::verify
 
 app_success:
-    path: /profile/success
+    path: /profile/kgfnhtl1616gbvh
     controller: App\Controller\PaymentController::success

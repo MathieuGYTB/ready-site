@@ -15,10 +15,4 @@ class VariablesService
     $admin_company = 'MG Production';
     return $admin_company;
   }
-
-  public function stripeSK(): string
-  {
-    $stripeSK = 'sk_test_51LeDueKgHxrl7uH30Bcdhjo2Lp7DkfhJhTCR3IYM65bUj5VYAWLVMeXe4gA8nBpVVybT9PyplESArJccqjfSUCHr00gExJt9S5';
-    return $stripeSK;
-  }
 }
