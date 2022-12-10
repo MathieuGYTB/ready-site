@@ -31,4 +31,9 @@ class DefaultController extends AbstractController
     {
       return $this->render(view: 'default/rgpd.html.twig');
     }
+
+    public function licence()
+    {
+    return $this->render(view: 'default/licence.html.twig');
+    }
 }
