@@ -11,9 +11,10 @@ use Doctrine\ORM\EntityManagerInterface;
 class PaymentController extends AbstractController
 {
     #[Route('/profile/commandez', name: 'commandez')]
-    public function checkout(VariablesService $variable_service): Response
+    public function checkout(): Response
     {
-        $stripeSK = $variable_service->stripeSK();
+        //$stripeSK = $variable_service->stripeSK();
+        $stripeSK = $this->getParameter('app.stripe_test_secret_key');
         \Stripe\Stripe::setApiKey($stripeSK);
 
         $YOUR_DOMAIN = 'http://symfony.localhost';
