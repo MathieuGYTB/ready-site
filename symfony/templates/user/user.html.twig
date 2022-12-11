@@ -58,6 +58,15 @@
                 <h2>Vos données personnelles :</h2>
                 <div class="text">{{ user_name }} {{ user_firstname }}</div>
                 <div class="text">{{ user_email }}</div>
+                <br/>
+                <br/>
+                
+                {% if is_granted('ROLE_PAYED') %}
+                    <div class="text-center">
+                        <a class="btn btn-success" href="{{asset('pack de démarrage.zip')}}" download="pack de démarrage.zip">Télécharger le pack de démarrage</a>
+                    </div>
+                {% endif %}
+            </div>
         </section>
     <main>
 {% endblock %}

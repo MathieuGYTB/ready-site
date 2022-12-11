@@ -18,11 +18,13 @@ class UserController extends AbstractController
       $user_firstname = $this->getUser()->getPrenom();
       $user_firstname = ucfirst($user_firstname);
       $user_email = $this->getUser()->getEmail();
+      $user_role = $this->getUser()->getRoles();
 
       return $this->render(view: 'user/user.html.twig', parameters:[
         'user_name'=> $user_name,
         'user_firstname' => $user_firstname,
         'user_email' => $user_email,
+        'user_role' => $user_role,
       ]);
     }
 }
