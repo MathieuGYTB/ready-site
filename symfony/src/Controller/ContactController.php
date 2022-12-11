@@ -14,6 +14,7 @@ use Symfony\Component\Mailer\MailerInterface;
 
 class ContactController extends AbstractController
 {
+
     #[Route('/profile/contact', name: 'app_contact')]  
     public function contact(Request $request, MailerInterface $mailer, VariablesService $variable): Response
     {

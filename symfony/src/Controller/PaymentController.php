@@ -18,6 +18,8 @@ class PaymentController extends AbstractController
 
         $YOUR_DOMAIN = 'http://symfony.localhost';
         $user_email = $this->getUser()->getEmail();
+
+        $product_price = $this->getParameter('product_price');
         
         $checkout_session = \Stripe\Checkout\Session::create([
             'billing_address_collection' => "required",
@@ -32,7 +34,7 @@ class PaymentController extends AbstractController
             'customer_email' => $user_email,
             'line_items' => [[
                 # Provide the exact Price ID (e.g. pr_1234) of the product you want to sell
-                'price' => 'price_1MCJ8tKgHxrl7uH3doxadPRv',
+                'price' => $product_price,
                 'quantity' => 1,
             ]],
             'mode' => 'payment',
@@ -68,14 +70,8 @@ class PaymentController extends AbstractController
     }
 
     #[Route('/profile/kgfnhtl1616gbvh', name: 'app_success')]
-    public function success(EntityManagerInterface $entityManagerInterface): Response
+    public function success(): Response
     {
-
-        $user = $this->getUser();
-        $user->setRoles(['ROLE_PAYED']);
-        $entityManagerInterface->persist($user);
-        $entityManagerInterface->flush();
-        
         return $this->render(view: 'payment/success.html.twig');
     }
 }

@@ -49,3 +49,7 @@ app_success:
 app_licence:
     path: /licence
     controller: App\Controller\DefaultController::licence
+
+app_session_completed:
+    path: /session/completed
+    controller: App\Controller\SessionCompletedController::index

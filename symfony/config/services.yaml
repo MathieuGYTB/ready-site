@@ -6,6 +6,7 @@
 parameters:
     stripe_test_secret_key: "%env(STRIPE_TEST_SECRET_KEY)%"
     stripe_prod_secret_key: "%env(STRIPE_PROD_SECRET_KEY)%"
+    product_price: "%env(PRODUCT_PRICE)%"
     
 services:
     # default configuration for services in *this* file
