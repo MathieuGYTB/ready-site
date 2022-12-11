@@ -36,7 +36,7 @@ app_logout:
 
 app_user:
     path: /profile/user
-    controller: App\Controller\UserController::user 
+    controller: App\Controller\UserController::user
 
 app_verify:
     path: /verifylink
