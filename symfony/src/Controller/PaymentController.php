@@ -25,6 +25,9 @@ class PaymentController extends AbstractController
         $user_email = $this->getUser()->getEmail();
 
         $product_price = $_ENV['PRODUCT_PRICE'];
+        $admin_siret = $_ENV['ADMIN_SIRET'];
+        $code_ape = $_ENV['CODE_APE'];
+        $tva = $_ENV['TVA'];
         
         $checkout_session = \Stripe\Checkout\Session::create([
             'billing_address_collection' => "required",
@@ -50,15 +53,15 @@ class PaymentController extends AbstractController
                     'custom_fields' => [
                         [
                             'name' => 'SIRET',
-                            'value' => '832 189 021 00021',
+                            'value' => $admin_siret,
                         ],
                         [
                             'name' => 'Code APE',
-                            'value' => '6201Z',
+                            'value' => $code_ape,
                         ],
                         [
                             'name' => 'TVA',
-                            'value' => 'non applicable ART.293B du CGI',
+                            'value' => $tva,
                         ],
                     ],
                 ],

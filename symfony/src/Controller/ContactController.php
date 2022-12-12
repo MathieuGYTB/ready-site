@@ -8,22 +8,21 @@ use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Bridge\Twig\Mime\TemplatedEmail;
-use App\Service\VariablesService;
 use Symfony\Component\Mailer\MailerInterface;
 
 
 class ContactController extends AbstractController
 {
 
-    #[Route('/profile/contact', name: 'app_contact')]  
-    public function contact(Request $request, MailerInterface $mailer, VariablesService $variable): Response
+    #[Route("{{ path('app_contact')}}", name: 'app_contact')]  
+    public function contact(Request $request, MailerInterface $mailer): Response
     {
         $user_name = $this->getUser()->getNom();
         $user_name = ucfirst($user_name);
         $user_firstname = $this->getUser()->getPrenom();
         $user_firstname = ucfirst($user_firstname);
         $user_email = $this->getUser()->getEmail();
-        $admin_email = $variable->adminEmail();
+        $admin_email = $_ENV['ADMIN_EMAIL'];
         
 
 

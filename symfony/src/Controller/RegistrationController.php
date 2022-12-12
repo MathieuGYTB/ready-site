@@ -14,7 +14,6 @@ use Symfony\Component\Mime\Address;
 use Symfony\Component\PasswordHasher\Hasher\UserPasswordHasherInterface;
 use Symfony\Component\Routing\Annotation\Route;
 use SymfonyCasts\Bundle\VerifyEmail\Exception\VerifyEmailExceptionInterface;
-use App\Service\VariablesService;
 
 class RegistrationController extends AbstractController
 {
@@ -26,13 +25,13 @@ class RegistrationController extends AbstractController
     }
 
     #[Route("{{ path('app_register')}}", name: 'app_register')]
-    public function register(Request $request, UserPasswordHasherInterface $userPasswordHasher, EntityManagerInterface $entityManager, VariablesService $variable): Response
+    public function register(Request $request, UserPasswordHasherInterface $userPasswordHasher, EntityManagerInterface $entityManager): Response
     {
         $user = new User();
         $form = $this->createForm(RegistrationFormType::class, $user);
         $form->handleRequest($request);
-        $admin_email = $variable->adminEmail();
-        $admin_company = $variable->adminCompanyName();
+        $admin_email = $_ENV['ADMIN_EMAIL'];
+        $admin_company = $_ENV['ADMIN_COMPANY'];
 
         if ($form->isSubmitted() && $form->isValid()) {
             $user->setEmail($user->getEmail());
