@@ -9,7 +9,7 @@ twig:
         admin_telephone: '%env(ADMIN_TELEPHONE)%'
         admin_siret: '%env(ADMIN_SIRET)%'
         admin_host: '%env(ADMIN_HOST)%'
-        admin_code_APE: '%env(CODE_APE)% Programmation informatique'
+        admin_code_APE: '%env(CODE_APE)%'
         price: '29,99'
         money: 'euros'
         description: 'pack de démarrage'
