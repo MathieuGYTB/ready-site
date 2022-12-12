@@ -25,7 +25,7 @@ class RegistrationController extends AbstractController
         $this->emailVerifier = $emailVerifier;
     }
 
-    #[Route('/register', name: 'app_register')]
+    #[Route("{{ path('app_register')}}", name: 'app_register')]
     public function register(Request $request, UserPasswordHasherInterface $userPasswordHasher, EntityManagerInterface $entityManager, VariablesService $variable): Response
     {
         $user = new User();
@@ -65,7 +65,7 @@ class RegistrationController extends AbstractController
         ]);
     }
 
-    #[Route('/verify/email', name: 'app_verify_email')]
+    #[Route("{{ path('app_verify_email')}}", name: 'app_verify_email')]
     public function verifyUserEmail(Request $request): Response
     {
         $this->denyAccessUnlessGranted('IS_AUTHENTICATED_FULLY');
@@ -85,7 +85,7 @@ class RegistrationController extends AbstractController
         return $this->redirectToRoute('app_user');
     }
 
-    #[Route('/verifylink', name: 'app_verify')]
+    #[Route("{{ path('app_verify')}}", name: 'app_verify')]
     public function verify()
     {
         return $this->render(view: 'registration/verify.html.twig');

@@ -11,7 +11,7 @@ class UserController extends AbstractController
   /**
   * @Route("/profile/user")
   */
-  #[Route('/profile/user', name: 'app_user')]
+  #[Route("{{ path('app_user')}}", name: 'app_user')]
   public function user(): Response
     {
       $user_name = $this->getUser()->getNom();

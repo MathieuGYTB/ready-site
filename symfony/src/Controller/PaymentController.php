@@ -5,21 +5,26 @@ namespace App\Controller;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
-use Doctrine\ORM\EntityManagerInterface;
+
+use function Symfony\Component\DependencyInjection\Loader\Configurator\env;
 
 class PaymentController extends AbstractController
 {
-    #[Route('/profile/commandez', name: 'commandez')]
+    #[Route("{{ path('commandez')}}", name: 'commandez')]
     public function checkout(): Response
     {
-    
-        $stripeSK = $this->getParameter('stripe_test_secret_key');
+        if ($_ENV['APP_ENV'] == 'dev') {
+            $stripeSK = $_ENV['STRIPE_TEST_SECRET_KEY'];
+        } else 
+        {
+            $stripeSK = $_ENV['STRIPE_PROD_SECRET_KEY'];
+        }
         \Stripe\Stripe::setApiKey($stripeSK);
 
         $YOUR_DOMAIN = 'http://symfony.localhost';
         $user_email = $this->getUser()->getEmail();
 
-        $product_price = $this->getParameter('product_price');
+        $product_price = $_ENV['PRODUCT_PRICE'];
         
         $checkout_session = \Stripe\Checkout\Session::create([
             'billing_address_collection' => "required",
@@ -58,8 +63,8 @@ class PaymentController extends AbstractController
                     ],
                 ],
             ],
-            'success_url' => $YOUR_DOMAIN . '/profile/kgfnhtl1616gbvh',
-            'cancel_url' => $YOUR_DOMAIN . '/',
+            'success_url' => $YOUR_DOMAIN . "/profile/kgfnhtl1616gbvh",
+            'cancel_url' => $YOUR_DOMAIN . "/",
             'automatic_tax' => [
                 'enabled' => true,
             ],
@@ -69,7 +74,7 @@ class PaymentController extends AbstractController
         
     }
 
-    #[Route('/profile/kgfnhtl1616gbvh', name: 'app_success')]
+    #[Route("{{ path(''app_succes')}}", name: 'app_success')]
     public function success(): Response
     {
         return $this->render(view: 'payment/success.html.twig');
