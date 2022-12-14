@@ -2,7 +2,7 @@ twig:
     default_path: '%kernel.project_dir%/templates'
     form_themes: ['bootstrap_5_layout.html.twig']
     globals: 
-        admin_name: '%env(ADMIN_NAME)% %env(ADMIN_FIRSTNAME)%'
+        admin_name: '%env(ADMIN_NAME)%'
         admin_address: '%env(ADMIN_ADDRESS)%'
         admin_email: '%env(ADMIN_EMAIL)%'
         admin_company: '%env(ADMIN_COMPANY)%'
@@ -10,10 +10,10 @@ twig:
         admin_siret: '%env(ADMIN_SIRET)%'
         admin_host: '%env(ADMIN_HOST)%'
         admin_code_APE: '%env(CODE_APE)%'
-        price: '29,99'
-        money: 'euros'
-        description: 'pack de démarrage'
-        quantity: '1'
+        price: '%env(PACK_PRICE)%'
+        currency: '%env(PACK_CURRENCY)%'
+        description: '%env(PACK_DESCRIPTION)%'
+        quantity: '%env(PACK_QUANTITY)%'
         
     
 when@test:

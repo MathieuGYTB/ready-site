@@ -82,6 +82,7 @@ class PaymentController extends AbstractController
     #[Route("{{ path(''app_succes')}}", name: 'app_success')]
     public function success(EntityManagerInterface $entityManagerInterface): Response
     {
+
         $user = $this->getUser();
         $user->setRoles(['ROLE_PAYED']);
         $entityManagerInterface->persist($user);
@@ -89,4 +90,5 @@ class PaymentController extends AbstractController
 
         return $this->render(view: 'payment/success.html.twig');
     }
+
 }
