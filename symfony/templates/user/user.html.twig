@@ -62,6 +62,12 @@
                 <br/>
                 
                 {% if is_granted('ROLE_PAYED') %}
+                <h2>Votre facture au format PDF</h2>
+                <br/>
+                    <p>{{ invoice_pdf }}</p>
+                <br/>
+                <h2>Votre pack de démarrage</h2>
+                <br/>
                     <div class="text-center">
                         <a class="btn btn-success" href="{{asset('pack de démarrage.zip')}}" download="pack de démarrage.zip">Télécharger le pack de démarrage</a>
                     </div>

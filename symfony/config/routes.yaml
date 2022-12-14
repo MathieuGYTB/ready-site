@@ -50,6 +50,6 @@ app_licence:
     path: /licence
     controller: App\Controller\DefaultController::licence
 
-app_session_completed:
+app_webhook:
     path: /webhook
-    controller: App\Controller\SessionCompletedController::index
+    controller: App\Controller\WebhookController::index
