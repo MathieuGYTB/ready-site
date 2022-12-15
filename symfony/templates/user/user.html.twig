@@ -61,10 +61,10 @@
                 <br/>
                 <br/>
                 
-                {% if is_granted('ROLE_PAYED') %}
+                {% if is_granted('ROLE_PAID') %}
                 <h2>Votre facture au format PDF</h2>
                 <br/>
-                    <p>{{ invoice_pdf }}</p>
+                    {{ invoice }}
                 <br/>
                 <h2>Votre pack de démarrage</h2>
                 <br/>

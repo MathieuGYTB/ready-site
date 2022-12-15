@@ -2,14 +2,17 @@
 
 namespace App\Controller;
 
+use App\Entity\Invoice;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
+use Doctrine\ORM\EntityManagerInterface;
+
 
 class WebhookController extends AbstractController
 {
     #[Route("{{ path('app_webhook')}}", name: 'app_webhook')]
-    public function index(): Response
+    public function index(EntityManagerInterface $entityManagerInterface): Response
     {
 
         $whsec_dev = $_ENV['WHSEC_DEV'];
@@ -42,8 +45,21 @@ class WebhookController extends AbstractController
         // Handle the event
         if ($event->type == 'invoice.payment_succeeded') {
             try {
-                    $invoice = $event->data->object;
-                    $invoice_pdf = $invoice->invoice_pdf;
+
+                    $user = $this->getUser();
+                    
+                    $invoice = new Invoice();
+                    $invoice_data = $event->data->object;
+                    $invoice_pdf = $invoice_data->invoice_pdf;
+                    $invoice->setPdf($invoice_pdf);
+                    $invoice->setUser($user);
+                    $entityManagerInterface->persist($invoice);
+                    $entityManagerInterface->flush();
+
+                    $user->setRoles(['ROLE_PAID']);
+                    $entityManagerInterface->persist($user);
+                    $entityManagerInterface->flush();
+                    
                 return $invoice_pdf;
 
             } catch (\Exception $e) {
@@ -56,7 +72,7 @@ class WebhookController extends AbstractController
     
         http_response_code(200);
 
-        return $this->render(view: 'Webhook/index.html.twig');
+        return $this->render(view: 'payment/success.html.twig');
 
     }
 }
