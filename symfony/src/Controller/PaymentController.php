@@ -18,14 +18,16 @@ class PaymentController extends AbstractController
     {
         if ($_ENV['APP_ENV'] == 'dev') {
             $stripeSK = $_ENV['STRIPE_TEST_SECRET_KEY'];
+            $product_price = $_ENV['PRODUCT_PRICE_DEV'];
         } else {
             $stripeSK = $_ENV['STRIPE_PROD_SECRET_KEY'];
+            $product_price = $_ENV['PRODUCT_PRICE_PROD'];
         }
         \Stripe\Stripe::setApiKey($stripeSK);
 
-        $YOUR_DOMAIN = 'https://easywebjob.fr';
+        $YOUR_DOMAIN = $_ENV['ADMIN_DOMAIN'];
         $user_email = $this->getUser()->getEmail();
-        $product_price = $_ENV['PRODUCT_PRICE'];
+        
         $admin_siret = $_ENV['ADMIN_SIRET'];
         $code_ape = $_ENV['CODE_APE'];
         $tva = $_ENV['TVA'];

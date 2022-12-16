@@ -14,7 +14,7 @@ twig:
         currency: '%env(PACK_CURRENCY)%'
         description: '%env(PACK_DESCRIPTION)%'
         quantity: '%env(PACK_QUANTITY)%'
-        
+        tva: '%env(TVA)%'
         
     
 when@test:
