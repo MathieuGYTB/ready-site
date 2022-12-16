@@ -43,10 +43,14 @@ app_verify:
     controller: App\Controller\RegistrationController::verify
 
 app_success:
-    path: /profile/kgfnhtl1616gbvh
+    path: /paid/kgfnhtl1616gbvh
     controller: App\Controller\PaymentController::success
     
 
 app_licence:
     path: /licence
     controller: App\Controller\DefaultController::licence
+
+app_webhook:
+    path: /profile/webhook
+    controller: App\Controller\WebhookController::index
