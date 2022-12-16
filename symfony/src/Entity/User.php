@@ -36,6 +36,12 @@ class User implements UserInterface, PasswordAuthenticatedUserInterface
     #[ORM\Column(nullable: true)]
     private ?bool $isVerified = null;
 
+    #[ORM\Column(length: 255, nullable: true)]
+    private ?string $invoice_number = null;
+
+    #[ORM\Column(length: 500, nullable: true)]
+    private ?string $invoice_pdf = null;
+
     public function getId(): ?int
     {
         return $this->id;
@@ -138,6 +144,30 @@ class User implements UserInterface, PasswordAuthenticatedUserInterface
     public function setIsVerified(?bool $isVerified): self
     {
         $this->isVerified = $isVerified;
+
+        return $this;
+    }
+
+    public function getInvoiceNumber(): ?string
+    {
+        return $this->invoice_number;
+    }
+
+    public function setInvoiceNumber(?string $invoice_number): self
+    {
+        $this->invoice_number = $invoice_number;
+
+        return $this;
+    }
+
+    public function getInvoicePdf(): ?string
+    {
+        return $this->invoice_pdf;
+    }
+
+    public function setInvoicePdf(?string $invoice_pdf): self
+    {
+        $this->invoice_pdf = $invoice_pdf;
 
         return $this;
     }

@@ -7,7 +7,7 @@ use Stripe\StripeObject;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
-use App\Entity\Invoice;
+
 
 use function Symfony\Component\DependencyInjection\Loader\Configurator\env;
 
@@ -81,7 +81,7 @@ class PaymentController extends AbstractController
     }
 
     #[Route("{{ path('app_succes')}}", name: 'app_success')]
-    public function success(EntityManagerInterface $entityManagerInterface, Invoice $invoice): Response
+    public function success(EntityManagerInterface $entityManagerInterface): Response
     {
 
         $whsec_dev = $_ENV['WHSEC_DEV'];
@@ -114,26 +114,24 @@ class PaymentController extends AbstractController
         }
         // Handle the event
         if ($event->type == 'invoice.payment_succeeded') {
-            //try {
+            try {
 
                     $user = $this->getUser();
-                    $invoice = new Invoice();
                     $invoice_data = $event->data->object;
                     $invoice_pdf = $invoice_data->invoice_pdf;
-                    $invoice->setUser($user);
-                    $invoice->setPdf($invoice_pdf);
-                    $entityManagerInterface->persist($invoice);
-                    $entityManagerInterface->flush();
-
+                    $invoice_number = $invoice_data->invoice_number;
+                    $user->setInvoicePdf($invoice_pdf);
+                    $user->setInvoiceNumber($invoice_number);
                     $user->setRoles(['ROLE_PAID']);
+
                     $entityManagerInterface->persist($user);
                     $entityManagerInterface->flush();
                     
                 return $invoice_pdf;
 
-            //} catch (\Exception $e) {
-            //   return $e->getMessage();
-            //}
+            } catch (\Exception $e) {
+              return $e->getMessage();
+            }
                 // ... handle other event types
         } else {
             echo 'Received unknown event type ' . $event->type;

@@ -50,5 +50,3 @@ app_success:
 app_licence:
     path: /licence
     controller: App\Controller\DefaultController::licence
-
-    
