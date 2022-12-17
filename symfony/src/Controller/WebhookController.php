@@ -3,14 +3,13 @@
 namespace App\Controller;
 
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
-use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
 use Doctrine\ORM\EntityManagerInterface;
 
 class WebhookController extends AbstractController
 {
     #[Route("{{ path('app_webhook')}}", name: 'app_webhook')]
-    public function index(EntityManagerInterface $entityManagerInterface): Response
+    public function index(EntityManagerInterface $entityManagerInterface): void
     {
         $whsec_dev = $_ENV['WHSEC_DEV'];
         $whsec_prod = $_ENV['WHSEC_PROD'];
@@ -77,8 +76,6 @@ class WebhookController extends AbstractController
         } else {
             echo 'Received unknown event type ' . $event->type;
         }
-        return $this->render('webhook/index.html.twig', [
-            'controller_name' => 'WebhookController',
-        ]);
+        
     }
 }
