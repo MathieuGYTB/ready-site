@@ -5,11 +5,12 @@ namespace App\Controller;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\Routing\Annotation\Route;
 use Doctrine\ORM\EntityManagerInterface;
+use Symfony\Component\HttpFoundation\Response;
 
 class WebhookController extends AbstractController
 {
     #[Route("{{ path('app_webhook')}}", name: 'app_webhook')]
-    public function index(EntityManagerInterface $entityManagerInterface): void
+    public function index(EntityManagerInterface $entityManagerInterface): Response
     {
         $whsec_dev = $_ENV['WHSEC_DEV'];
         $whsec_prod = $_ENV['WHSEC_PROD'];
@@ -70,7 +71,7 @@ class WebhookController extends AbstractController
                     
 
             } catch (\Exception $e) {
-              return $e->getMessage();
+                return $e->getMessage();
             }
                 // ... handle other event types
         } else {
