@@ -15,7 +15,6 @@ section {
 
 p {
   font-size: 25px;
-  color: blue;
 }
 
 @media screen and (max-width: 660px) {
