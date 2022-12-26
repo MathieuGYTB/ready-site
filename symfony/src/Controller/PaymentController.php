@@ -7,6 +7,7 @@ use Stripe\StripeObject;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
+use Doctrine\ORM\EntityManagerInterface;
 
 
 use function Symfony\Component\DependencyInjection\Loader\Configurator\env;
@@ -71,8 +72,8 @@ class PaymentController extends AbstractController
                     ],
                 ],
             ],
-            'success_url' => $YOUR_DOMAIN . "/paid/kgfnhtl1616gbvh?session_id={CHECKOUT_SESSION_ID}",
-            'cancel_url' => $YOUR_DOMAIN . "/",
+            'success_url' => $YOUR_DOMAIN . "/profile/kgfnhtl1616gbvh?session_id={CHECKOUT_SESSION_ID}",
+            'cancel_url' => $YOUR_DOMAIN . "/cancel",
             'automatic_tax' => [
                 'enabled' => true,
             ],
@@ -83,9 +84,24 @@ class PaymentController extends AbstractController
     }
 
     #[Route("{{ path('app_succes')}}", name: 'app_success')]
-    public function success(): Response
+    public function success(EntityManagerInterface $entityManagerInterface): Response
     {
+        /*$user = $this->getUser();
+                    
+        $user->setRoles(['ROLE_PAID']);
+
+        $entityManagerInterface->persist($user);
+        $entityManagerInterface->flush();
+        */
+
         return $this->render(view: 'payment/success.html.twig');
+    }
+
+    #[Route("{{ path('app_cancel')}}", name: 'app_cancel')]
+    public function cancel(): Response
+    {
+        $this->addFlash('cancel', 'Votre achat à été annulé');
+        return $this->redirectToRoute('index');
     }
 
 }

@@ -12,6 +12,9 @@
     <nav class="navbar sticky-top navbar-expand-lg navbar-dark bg-secondary">
         <div class="container-fluid">
             <a class="navbar-brand" href="{{ path('index')}}">Accueil</a>
+            <button type="button" class="navbar-toggler" data-bs-toggle="collapse" data-bs-target="#navbarColor02" aria-controls="navbarColor02" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
         <div class="collapse navbar-collapse" id="navbarColor02">
             <ul class="navbar-nav me-auto mb-2 mb-lg-0">
                 <li class="nav-item">
@@ -57,16 +60,11 @@
                 <br/>
                 <h2>Vos données personnelles :</h2>
                 <div class="text">{{ user_name }} {{ user_firstname }}</div>
-                <div class="text">{{ user_address }} {{ user_code_postal }} {{ user_city }} {{ user_pays }}</div>
                 <div class="text">{{ user_email }}</div>
                 <br/>
                 <br/>
                 
                 {% if is_granted('ROLE_PAID') %}
-                <h2>Votre facture au format PDF</h2>
-                <br/>
-                    {{ invoice }}
-                <br/>
                 <h2>Votre {{ description }}</h2>
                 <br/>
                     <div class="text-center">

@@ -6,6 +6,9 @@
     <nav class="navbar sticky-top navbar-expand-lg navbar-dark bg-secondary">
       <div class="container-fluid">
         <a class="navbar-brand active" href="{{ path('index')}}">Accueil</a>
+        <button type="button" class="navbar-toggler" data-bs-toggle="collapse" data-bs-target="#navbarColor02" aria-controls="navbarColor02" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
         <div class="collapse navbar-collapse" id="navbarColor02">
           <ul class="navbar-nav me-auto mb-2 mb-lg-0">
             <li class="nav-item">
@@ -40,6 +43,11 @@
   </header>
   <main>
     <section>
+      {% for message in app.flashes('cancel') %}
+                <div class="alert alert-success">
+                    {{ message }}
+                </div>
+      {% endfor %}
       <h1>Bonjour !</h1>
       <br/>
       <p>Vous recherchez un job facile et peu chronophage en télétravail ? 
