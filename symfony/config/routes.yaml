@@ -51,10 +51,6 @@ app_licence:
     path: /licence
     controller: App\Controller\DefaultController::licence
 
-app_webhook:
-    path: /webhook
-    controller: App\Controller\WebhookController::index
-
 app_cancel:
     path: /cancel
     controller: App\Controller\PaymentController::cancel

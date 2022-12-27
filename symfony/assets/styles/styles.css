@@ -11042,11 +11042,6 @@ p {
     height: 200px;
   }
 }
-@media screen and (max-width: 500px) {
-  #pack {
-    height: 100px;
-  }
-}
 @media screen and (max-width: 660px) {
   h1, .h1 {
     font-size: 18px;
