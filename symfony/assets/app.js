@@ -16,3 +16,5 @@ import './bootstrap';
 //assets/app.js
 const $ = require('jquery');
 require('bootstrap');
+
+import './eye';
